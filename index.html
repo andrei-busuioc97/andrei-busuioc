@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andrei Busuioc | Portofoliu & Proiecte</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #0f1115;
+      color: white;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #151922;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+    }
+
+    header h2 {
+      color: #00d084;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+
+    nav a:hover {
+      color: #00d084;
+    }
+
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #111827, #0f1115);
+    }
+
+    .hero h1 {
+      font-size: 55px;
+      margin-bottom: 15px;
+    }
+
+    .hero span {
+      color: #00d084;
+    }
+
+    .hero p {
+      max-width: 700px;
+      color: #c7c7c7;
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #00d084;
+      color: #06130e;
+      padding: 14px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 70px 8%;
+    }
+
+    section h2 {
+      font-size: 35px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #171b24;
+      padding: 30px;
+      border-radius: 15px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      background: #1d2330;
+    }
+
+    .card h3 {
+      color: #00d084;
+      margin-bottom: 10px;
+    }
+
+    .about {
+      background: #131720;
+      text-align: center;
+    }
+
+    .about p {
+      max-width: 800px;
+      margin: auto;
+      color: #c7c7c7;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    footer {
+      background: #090b0f;
+      text-align: center;
+      padding: 25px;
+      color: #888;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        flex-direction: column;
+      }
+
+      nav {
+        margin-top: 15px;
+      }
+
+      nav a {
+        margin: 0 8px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h2>Andrei Busuioc</h2>
+
+  <nav>
+    <a href="#acasa">Acasă</a>
+    <a href="#proiecte">Proiecte</a>
+    <a href="#despre">Despre</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero" id="acasa">
+  <h1>Salut, sunt <span>Andrei</span></h1>
+
+  <p>
+    Construiesc, creez și dezvolt proiecte.
+    De la electrică și construcții până la statui,
+    proiecte web, tehnologie și idei noi.
+  </p>
+
+  <a href="#proiecte" class="btn">Vezi proiectele mele</a>
+</section>
+
+<section id="proiecte">
+  <h2>Proiectele mele</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>⚡ Electrică</h3>
+      <p>
+        Instalații electrice, tablouri, iluminat,
+        automatizări și proiecte tehnice.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🏗️ Construcții</h3>
+      <p>
+        Renovări, acoperișuri, amenajări și lucrări
+        realizate în domeniul construcțiilor.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🗿 Statui & Decorațiuni</h3>
+      <p>
+        Proiecte realizate manual din ciment,
+        matrițe decorative și produse pentru exterior.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>💻 Web & AI</h3>
+      <p>
+        Site-uri web, experimente cu inteligență artificială
+        și proiecte digitale dezvoltate în timp.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🚙 Proiecte Auto</h3>
+      <p>
+        Modificări, idei și proiecte personale
+        pentru mașini și aventură.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🚀 Proiecte Viitoare</h3>
+      <p>
+        Aici vor apărea ideile și proiectele noi
+        pe care le voi dezvolta.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="about" id="despre">
+  <h2>Despre mine</h2>
+
+  <p>
+    Sunt Andrei Busuioc și îmi place să transform ideile în proiecte reale.
+    Lucrez în domenii tehnice, construcții și instalații, dar în același timp
+    dezvolt proiecte personale, produse decorative și soluții digitale.
+    Acest site este locul unde voi aduna toate proiectele mele.
+  </p>
+</section>
+
+<section class="contact" id="contact">
+  <h2>Contact</h2>
+
+  <p>
+    Pentru colaborări, proiecte sau întrebări mă poți contacta direct.
+  </p>
+
+  <br>
+
+  <a href="#" class="btn">Contactează-mă</a>
+</section>
+
+<footer>
+  © 2026 Andrei Busuioc • Toate drepturile rezervate
+</footer>
+
+</body>
+</html>
