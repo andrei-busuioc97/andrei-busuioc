@@ -321,7 +321,31 @@
       color: var(--muted);
       margin-top: 6px;
     }
+.portfolio-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
 
+.portfolio-menu a {
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: #121c27;
+  border: 1px solid var(--border);
+  color: #dfe7ef;
+  font-weight: 700;
+  font-size: 14px;
+  transition: 0.25s;
+}
+
+.portfolio-menu a:hover {
+  background: var(--green);
+  color: #03110c;
+  border-color: var(--green);
+  transform: translateY(-2px);
+}
     .gallery {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -761,19 +785,26 @@
 
     <div class="heading">
 
-      <span>Galerie</span>
+     <span>PORTOFOLIU • BĂI</span>
 
-      <h2>
-        Lucrările mele
-      </h2>
-
+<h2>
+  Băi • Gresie & Faianță
+</h2>
       <p>
-        Aici vom pune fotografiile tale reale.
-        Momentan lăsăm locurile pregătite.
-      </p>
+  Lucrări de amenajare băi, montaj gresie și faianță,
+  realizate în diferite etape ale proiectului.
+</p>
 
     </div>
-
+<div class="portfolio-menu">
+  <a href="#galerie">Băi</a>
+  <a href="#electrica">Electrică</a>
+  <a href="#interioare">Interioare</a>
+  <a href="#aer-conditionat">Aer condiționat</a>
+  <a href="#travertino">Travertino</a>
+  <a href="#statui">Statui</a>
+  <a href="#web-ai">Web & AI</a>
+</div>
 
     <div class="gallery">
 <div class="photo">
