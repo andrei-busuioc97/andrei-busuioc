@@ -328,18 +328,25 @@
       gap: 14px;
     }
 
-    .photo {
-      aspect-ratio: 4 / 3;
-      background: #111b25;
-      border: 1px dashed rgba(255,255,255,0.2);
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--muted);
-      text-align: center;
-      padding: 20px;
-    }
+ .photo {
+  aspect-ratio: 4 / 3;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #111b25;
+  border: 1px solid var(--border);
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.photo:hover img {
+  transform: scale(1.05);
+}
 
     .about {
       max-width: 850px;
@@ -769,41 +776,35 @@
 
 
     <div class="gallery">
+<div class="photo">
+  <img src="WhatsApp Image 2026-08-16 at 14.31.51.jpeg"
+       alt="Placare gresie si faianta baie">
+</div>
 
-      <div class="photo">
-        Electrică
-      </div>
+<div class="photo">
+  <img src="WhatsApp Image 2026-08-16 at 14.31.50.jpeg"
+       alt="Montaj faianta baie">
+</div>
 
-      <div class="photo">
-        Amenajări interioare
-      </div>
+<div class="photo">
+  <img src="WhatsApp Image 2026-08-16 at 14.31.51 (7).jpeg"
+       alt="Montaj gresie cu rigola dus">
+</div>
 
-      <div class="photo">
-        Băi
-      </div>
+<div class="photo">
+  <img src="WhatsApp Image 2026-08-16 at 14.31.51 (3).jpeg"
+       alt="Amenajare baie in lucru">
+</div>
 
-      <div class="photo">
-        Gresie & Faianță
-      </div>
+<div class="photo">
+  <img src="WhatsApp Image 2026-08-16 at 14.31.51 (5).jpeg"
+       alt="Montaj gresie pardoseala">
+</div>
 
-      <div class="photo">
-        Aer condiționat
-      </div>
-
-      <div class="photo">
-        Travertino decorativ
-      </div>
-
-      <div class="photo">
-        Statui
-      </div>
-
-      <div class="photo">
-        Site-uri Web
-      </div>
-
-      <div class="photo">
-        Proiecte AI
+<div class="photo">
+  <img src="WhatsApp Image 2026-08-16 at 14.31.51 (6).jpeg"
+       alt="Lucrare gresie si faianta baie">
+</div>
       </div>
 
     </div>
