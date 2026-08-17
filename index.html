@@ -414,6 +414,21 @@
         max-width: 220px;
       }
     }
+    body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("favicon.png") center center / 420px auto no-repeat;
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body > * {
+  position: relative;
+  z-index: 1;
+}
+    
   </style>
 </head>
 
