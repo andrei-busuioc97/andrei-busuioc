@@ -587,6 +587,10 @@ body.lightbox-open {
     right: 8px;
   }
 }
+nav a.active {
+  color: #00d68f;
+  text-shadow: 0 0 10px rgba(0, 214, 143, 0.35);
+}    
   </style>
 </head>
 
@@ -1014,6 +1018,34 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
-  
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll("nav a[href^='#']");
+
+  function updateActiveMenu() {
+    let current = "";
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 140;
+
+      if (window.scrollY >= sectionTop) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+
+      if (link.getAttribute("href") === "#" + current) {
+        link.classList.add("active");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", updateActiveMenu);
+  updateActiveMenu();
+});
+</script>
 </body>
 </html>
