@@ -474,6 +474,75 @@ a[href="#galerie"] {
  body {
   padding-top: 78px;
 }   
+/* ===== MARIRE POZE LA CLICK ===== */
+
+main img {
+  cursor: zoom-in;
+}
+
+.image-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(0, 0, 0, 0.94);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.image-lightbox.active {
+  display: flex;
+}
+
+.image-lightbox img {
+  max-width: 95%;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 0 35px rgba(0, 214, 143, 0.18);
+  cursor: default;
+}
+
+.image-lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 28px;
+  color: #ffffff;
+  font-size: 46px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 100000;
+  user-select: none;
+}
+
+.image-lightbox-close:hover {
+  color: #00d68f;
+}
+
+body.lightbox-open {
+  overflow: hidden;
+}
+
+@media (max-width: 700px) {
+  .image-lightbox {
+    padding: 10px;
+  }
+
+  .image-lightbox img {
+    max-width: 100%;
+    max-height: 85vh;
+    border-radius: 8px;
+  }
+
+  .image-lightbox-close {
+    top: 12px;
+    right: 18px;
+    font-size: 42px;
+  }
+}    
   </style>
 </head>
 
@@ -814,6 +883,49 @@ a[href="#galerie"] {
 <footer>
   © 2026 Făurit de Busuioc • Din idee, în realitate • Toate drepturile rezervate
 </footer>
+<div id="imageLightbox" class="image-lightbox">
+  <span class="image-lightbox-close" id="imageLightboxClose">&times;</span>
+  <img id="imageLightboxImg" src="" alt="Imagine mărită">
+</div>
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const lightbox = document.getElementById("imageLightbox");
+  const lightboxImg = document.getElementById("imageLightboxImg");
+  const closeBtn = document.getElementById("imageLightboxClose");
 
+  document.querySelectorAll("main img").forEach(function (img) {
+    img.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      lightboxImg.src = this.src;
+      lightboxImg.alt = this.alt || "Imagine mărită";
+
+      lightbox.classList.add("active");
+      document.body.classList.add("lightbox-open");
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove("active");
+    document.body.classList.remove("lightbox-open");
+    lightboxImg.src = "";
+  }
+
+  closeBtn.addEventListener("click", closeLightbox);
+
+  lightbox.addEventListener("click", function (e) {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      closeLightbox();
+    }
+  });
+});
+</script>
+  
 </body>
 </html>
