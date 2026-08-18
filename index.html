@@ -944,7 +944,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const prevBtn = document.getElementById("lightboxPrev");
   const nextBtn = document.getElementById("lightboxNext");
 
-  const images = Array.from(document.querySelectorAll("main img"));
+  const images = Array.from(document.querySelectorAll("main img"))
+  .filter(img => img.offsetParent !== null);
   let currentIndex = 0;
 
   function showImage(index) {
