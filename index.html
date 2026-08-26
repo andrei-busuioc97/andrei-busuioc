@@ -1497,12 +1497,18 @@ document.addEventListener("DOMContentLoaded", function () {
   const prevBtn = document.getElementById("lightboxPrev");
   const nextBtn = document.getElementById("lightboxNext");
 
-function getVisibleImages() {
-  return Array.from(document.querySelectorAll("main img"))
-    .filter(img => img.offsetParent !== null);
+function getVisibleImages(clickedImg) {
+  const gallery = clickedImg.closest(".gallery");
+
+  if (gallery) {
+    return Array.from(gallery.querySelectorAll("img"))
+      .filter(img => img.offsetParent !== null);
+  }
+
+  return [clickedImg];
 }
 
-let images = getVisibleImages();
+let images = [];
   let currentIndex = 0;
 
   function showImage(index) {
@@ -1518,18 +1524,19 @@ let images = getVisibleImages();
     lightboxImg.alt = images[currentIndex].alt || "Imagine mărită";
   }
 
- images.forEach(function (img, index) {
+document.querySelectorAll("main img").forEach(function (img) {
   img.addEventListener("click", function (e) {
     e.preventDefault();
 
-    images = getVisibleImages();
+    images = getVisibleImages(this);
     currentIndex = images.indexOf(this);
-      showImage(currentIndex);
 
-      lightbox.classList.add("active");
-      document.body.classList.add("lightbox-open");
-    });
+    showImage(currentIndex);
+
+    lightbox.classList.add("active");
+    document.body.classList.add("lightbox-open");
   });
+});
 
   function closeLightbox() {
     lightbox.classList.remove("active");
