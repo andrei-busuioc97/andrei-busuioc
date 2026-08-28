@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Creare Site-uri Web Focșani | Făurit de Busuioc</title>
+
+  <meta name="description"
+    content="Creare site-uri web de prezentare pentru firme, servicii și afaceri. Design modern, responsive, optimizare SEO și pachete Basic, Standard și Premium. Făurit de Busuioc - Focșani, Vrancea.">
+
+  <meta name="keywords"
+    content="creare site Focșani, creare site Vrancea, site de prezentare, realizare site web, creare site firmă, design web">
+
+  <link rel="canonical" href="https://fauritdebusuioc.ro/creare-site-uri/">
+  <link rel="icon" type="image/png" href="../favicon.png">
+
+  <meta property="og:title" content="Creare Site-uri Web | Făurit de Busuioc">
+  <meta property="og:description"
+    content="Site-uri moderne, rapide și adaptate pentru telefon și calculator. Vezi pachetele disponibile.">
+  <meta property="og:url" content="https://fauritdebusuioc.ro/creare-site-uri/">
+  <meta property="og:type" content="website">
+
+  <style>
+    :root {
+      --bg: #080d12;
+      --bg2: #0d141c;
+      --card: #101a24;
+      --card2: #111e29;
+      --text: #ffffff;
+      --muted: #aab5c3;
+      --green: #00d68f;
+      --green2: #52ffbd;
+      --border: rgba(255, 255, 255, 0.08);
+      --shadow: 0 25px 70px rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 10% 20%, rgba(0, 214, 143, 0.08), transparent 30%),
+        radial-gradient(circle at 90% 60%, rgba(0, 214, 143, 0.05), transparent 25%),
+        var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url("../favicon.png") center / 420px auto no-repeat;
+      opacity: 0.018;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    header,
+    main,
+    footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    .container {
+      width: min(1180px, 90%);
+      margin: auto;
+    }
+
+    /* HEADER */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      background: rgba(8, 13, 18, 0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .logo img {
+      height: 56px;
+      width: auto;
+      display: block;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #e8edf2;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.25s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--green);
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 690px;
+      display: flex;
+      align-items: center;
+      padding: 90px 0;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(46px, 6vw, 82px);
+      line-height: 0.98;
+      letter-spacing: -3px;
+      margin-bottom: 28px;
+    }
+
+    h1 span {
+      color: var(--green);
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 19px;
+      max-width: 680px;
+      margin-bottom: 34px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 25px;
+      border-radius: 11px;
+      text-decoration: none;
+      font-weight: 800;
+      transition: 0.25s;
+      border: 1px solid var(--border);
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: #04100c;
+      box-shadow: 0 0 30px rgba(0, 214, 143, 0.15);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 35px rgba(0, 214, 143, 0.28);
+    }
+
+    .btn-dark {
+      color: white;
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    .btn-dark:hover {
+      color: var(--green);
+      border-color: rgba(0, 214, 143, 0.45);
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      width: 430px;
+      height: 430px;
+      background: rgba(0, 214, 143, 0.16);
+      filter: blur(100px);
+      border-radius: 50%;
+      inset: 50% auto auto 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .hero-visual img {
+      position: relative;
+      width: 100%;
+      display: block;
+      border-radius: 24px;
+      border: 1px solid rgba(0, 214, 143, 0.18);
+      box-shadow: var(--shadow);
+    }
+
+    /* SECTION */
+
+    section {
+      padding: 95px 0;
+    }
+
+    .dark-section {
+      background: rgba(13, 20, 28, 0.62);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-heading {
+      max-width: 780px;
+      margin-bottom: 46px;
+    }
+
+    .section-heading.center {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section-heading span {
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-weight: 800;
+      font-size: 12px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(35px, 4vw, 55px);
+      line-height: 1.05;
+      margin: 12px 0 18px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    /* BENEFITS */
+
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .benefit {
+      background: linear-gradient(145deg, rgba(18, 30, 40, .95), rgba(10, 17, 24, .95));
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px;
+      transition: 0.3s;
+    }
+
+    .benefit:hover {
+      transform: translateY(-6px);
+      border-color: rgba(0, 214, 143, 0.35);
+    }
+
+    .benefit-icon {
+      font-size: 28px;
+      margin-bottom: 17px;
+    }
+
+    .benefit h3 {
+      margin-bottom: 10px;
+      font-size: 19px;
+    }
+
+    .benefit p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* PROJECTS */
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .project-card {
+      overflow: hidden;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      transition: 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(0, 214, 143, 0.32);
+      box-shadow: var(--shadow);
+    }
+
+    .project-card img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-content {
+      padding: 25px;
+    }
+
+    .project-content h3 {
+      font-size: 21px;
+      margin-bottom: 8px;
+    }
+
+    .project-content p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 19px;
+    }
+
+    /* PRICING IMAGE */
+
+    .pricing-image {
+      width: min(1150px, 100%);
+      margin: 0 auto;
+      display: block;
+      border-radius: 22px;
+      border: 1px solid rgba(0, 214, 143, 0.2);
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+      cursor: zoom-in;
+      transition: 0.3s;
+    }
+
+    .pricing-image:hover {
+      transform: scale(1.01);
+      border-color: rgba(0, 214, 143, 0.5);
+    }
+
+    .pricing-note {
+      max-width: 780px;
+      margin: 25px auto 0;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+    }
+
+    /* PROCESS */
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      counter-reset: step;
+    }
+
+    .step {
+      position: relative;
+      padding: 28px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.018);
+    }
+
+    .step::before {
+      counter-increment: step;
+      content: "0" counter(step);
+      display: block;
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+    }
+
+    .step h3 {
+      margin-bottom: 9px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* CTA */
+
+    .cta {
+      border-radius: 28px;
+      padding: 55px;
+      text-align: center;
+      border: 1px solid rgba(0, 214, 143, 0.23);
+      background:
+        radial-gradient(circle at center, rgba(0, 214, 143, 0.09), transparent 65%),
+        var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .cta h2 {
+      font-size: clamp(32px, 4vw, 52px);
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      max-width: 700px;
+      margin: 0 auto 28px;
+      color: var(--muted);
+    }
+
+    /* LIGHTBOX */
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.93);
+      z-index: 20000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 92vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 18px;
+      right: 25px;
+      font-size: 38px;
+      color: white;
+      cursor: pointer;
+      border: 0;
+      background: none;
+    }
+
+    body.lightbox-open {
+      overflow: hidden;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 35px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 950px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .hero {
+        padding-top: 70px;
+      }
+
+      .benefits,
+      .process {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        max-width: 650px;
+        margin: auto;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .navbar {
+        min-height: auto;
+        padding: 12px 0;
+        flex-direction: column;
+        gap: 11px;
+      }
+
+      .logo img {
+        height: 48px;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 13px;
+      }
+
+      nav a {
+        font-size: 12px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 65px 0;
+      }
+
+      h1 {
+        letter-spacing: -1.5px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+
+      .benefits,
+      .process {
+        grid-template-columns: 1fr;
+      }
+
+      .cta {
+        padding: 35px 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container navbar">
+
+      <a href="https://fauritdebusuioc.ro/" class="logo">
+        <img src="../logo-faurit.png" alt="Făurit de Busuioc">
+      </a>
+
+      <nav>
+        <a href="https://fauritdebusuioc.ro/">Acasă</a>
+        <a href="#servicii">Ce oferim</a>
+        <a href="#proiecte">Exemple</a>
+        <a href="#preturi">Prețuri</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+
+    <section class="hero">
+      <div class="container hero-grid">
+
+        <div>
+          <span class="eyebrow">Făurit de Busuioc • Web Design</span>
+
+          <h1>
+            Site-ul tău.<br>
+            <span>Construit să conteze.</span>
+          </h1>
+
+          <p>
+            Creăm site-uri moderne de prezentare pentru firme, servicii și afaceri.
+            Design personalizat, adaptare pentru telefon și calculator, optimizare
+            pentru Google și o imagine profesională de la prima accesare.
+          </p>
+
+          <div class="buttons">
+            <a href="#preturi" class="btn btn-primary">Vezi pachetele</a>
+
+            <a href="https://wa.me/40786594999?text=Buna%2C%20ma%20intereseaza%20crearea%20unui%20site%20web."
+              class="btn btn-dark"
+              target="_blank">
+              Cere ofertă
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <img src="../images/web-ai/site-uri web.png"
+            alt="Creare site-uri web Făurit de Busuioc">
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CE OFERIM -->
+
+    <section id="servicii" class="dark-section">
+      <div class="container">
+
+        <div class="section-heading center">
+          <span>De la idee la online</span>
+          <h2>Un site construit pentru afacerea ta</h2>
+          <p>
+            Nu urmărim doar să arate bine. Construim pagini clare, rapide și ușor
+            de folosit, gândite să prezinte profesionist serviciile tale.
+          </p>
+        </div>
+
+        <div class="benefits">
+
+          <div class="benefit">
+            <div class="benefit-icon">✦</div>
+            <h3>Design personalizat</h3>
+            <p>Aspect adaptat afacerii, culorilor și identității tale.</p>
+          </div>
+
+          <div class="benefit">
+            <div class="benefit-icon">▣</div>
+            <h3>Telefon & PC</h3>
+            <p>Site adaptat pentru telefon, tabletă, laptop și calculator.</p>
+          </div>
+
+          <div class="benefit">
+            <div class="benefit-icon">⌕</div>
+            <h3>SEO de bază</h3>
+            <p>Structură și informații pregătite pentru indexarea Google.</p>
+          </div>
+
+          <div class="benefit">
+            <div class="benefit-icon">↗</div>
+            <h3>Contact rapid</h3>
+            <p>Integrare WhatsApp, email și butoane clare pentru cereri de ofertă.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PROIECTE -->
+
+    <section id="proiecte">
+      <div class="container">
+
+        <div class="section-heading">
+          <span>Web & AI</span>
+          <h2>De la concept la proiect real</h2>
+          <p>
+            Fiecare proiect începe cu o idee. O transformăm într-o prezență online
+            modernă, clară și adaptată nevoilor clientului.
+          </p>
+        </div>
+
+        <div class="projects">
+
+          <article class="project-card">
+            <img src="../images/web-ai/proiect-real.png"
+              alt="Proiect Făurit de Busuioc">
+
+            <div class="project-content">
+              <h3>Făurit de Busuioc</h3>
+              <p>
+                Exemplu de proiect construit și dezvoltat de la zero, de la identitate
+                vizuală până la publicarea online.
+              </p>
+
+              <a href="https://fauritdebusuioc.ro/"
+                target="_blank"
+                class="btn btn-dark">
+                Vezi proiectul
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="../images/web-ai/site-uri web.png"
+              alt="Site-uri web personalizate">
+
+            <div class="project-content">
+              <h3>Site-uri Web</h3>
+              <p>
+                Pagini de prezentare pentru servicii, firme și afaceri, construite
+                pentru imagine profesională și contact rapid.
+              </p>
+
+              <a href="#preturi" class="btn btn-dark">
+                Vezi pachetele
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="../images/web-ai/proiecte AI.png"
+              alt="Proiecte AI">
+
+            <div class="project-content">
+              <h3>Web & AI</h3>
+              <p>
+                Folosim instrumente moderne pentru idei vizuale, promovare și
+                dezvoltarea mai rapidă a proiectelor digitale.
+              </p>
+
+              <a href="https://wa.me/40786594999?text=Buna%2C%20vreau%20mai%20multe%20detalii%20despre%20serviciile%20Web%20si%20AI."
+                target="_blank"
+                class="btn btn-dark">
+                Cere detalii
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PRETURI -->
+
+    <section id="preturi" class="dark-section">
+      <div class="container">
+
+        <div class="section-heading center">
+          <span>Pachete Website</span>
+          <h2>Prețuri de plecare</h2>
+          <p>
+            De la site-uri simple de prezentare până la proiecte premium.
+            Pachetul final se adaptează proiectului și funcțiilor necesare.
+          </p>
+        </div>
+
+        <img
+          src="../images/web-ai/preturi sait.png"
+          alt="Prețuri creare site-uri Făurit de Busuioc"
+          class="pricing-image"
+          id="pricingImage">
+
+        <p class="pricing-note">
+          Domeniul se achită separat. Prețul final poate varia în funcție de
+          complexitatea proiectului, numărul de secțiuni, funcții și modificările solicitate.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- PROCES -->
+
+    <section>
+      <div class="container">
+
+        <div class="section-heading center">
+          <span>Cum lucrăm</span>
+          <h2>De la discuție la site publicat</h2>
+        </div>
+
+        <div class="process">
+
+          <div class="step">
+            <h3>Stabilim ideea</h3>
+            <p>Discutăm despre afacere, servicii, stil și ce trebuie să obțină site-ul.</p>
+          </div>
+
+          <div class="step">
+            <h3>Construim designul</h3>
+            <p>Pregătim structura, culorile, imaginile și identitatea vizuală.</p>
+          </div>
+
+          <div class="step">
+            <h3>Dezvoltăm site-ul</h3>
+            <p>Construim pagina și o adaptăm pentru telefon, tabletă și calculator.</p>
+          </div>
+
+          <div class="step">
+            <h3>Publicăm</h3>
+            <p>Conectăm domeniul, verificăm funcționarea și pregătim site-ul pentru Google.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+      <div class="container">
+
+        <div class="cta">
+
+          <span class="eyebrow">Ai o idee?</span>
+
+          <h2>Transformăm ideea ta într-un site real.</h2>
+
+          <p>
+            Spune-ne ce tip de afacere sau proiect ai și discutăm despre structura,
+            designul și pachetul potrivit.
+          </p>
+
+          <div class="buttons" style="justify-content:center;">
+
+            <a href="https://wa.me/40786594999?text=Buna%2C%20ma%20intereseaza%20crearea%20unui%20site%20web."
+              target="_blank"
+              class="btn btn-primary">
+              Scrie pe WhatsApp
+            </a>
+
+            <a href="mailto:busuiocandrei97@gmail.com"
+              class="btn btn-dark">
+              Trimite Email
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- LIGHTBOX PRETURI -->
+
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">&times;</button>
+    <img id="lightboxImg" src="" alt="Imagine mărită">
+  </div>
+
+  <footer>
+    <div class="container">
+      © 2026 <strong>Făurit de Busuioc</strong> • Din idee, în realitate • Toate drepturile rezervate
+    </div>
+  </footer>
+
+  <script>
+    const pricingImage = document.getElementById("pricingImage");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const lightboxClose = document.getElementById("lightboxClose");
+
+    pricingImage.addEventListener("click", function () {
+      lightboxImg.src = this.src;
+      lightbox.classList.add("active");
+      document.body.classList.add("lightbox-open");
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove("active");
+      document.body.classList.remove("lightbox-open");
+    }
+
+    lightboxClose.addEventListener("click", closeLightbox);
+
+    lightbox.addEventListener("click", function (e) {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        closeLightbox();
+      }
+    });
+  </script>
+
+</body>
+</html>
