@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fauritdebusuioc.ro/sitemap.xml
