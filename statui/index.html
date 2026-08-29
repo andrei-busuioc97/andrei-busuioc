@@ -5,54 +5,75 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Statui Decorative | Făurit de Busuioc</title>
+  <title>Statui Decorative Focșani | Făurit de Busuioc</title>
 
   <meta name="description"
-    content="Statui decorative pentru curți și grădini. Modele realizate manual, potrivite pentru exterior. Vezi colecția Făurit de Busuioc și cere detalii pe WhatsApp.">
+        content="Statui și decorațiuni pentru curți și grădini. Descoperă modelele decorative Făurit de Busuioc din Focșani, Vrancea.">
 
-  <link rel="canonical" href="https://fauritdebusuioc.ro/statui/">
-  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="canonical"
+        href="https://fauritdebusuioc.ro/statui/">
 
-  <meta property="og:title" content="Statui Decorative | Făurit de Busuioc">
+  <link rel="icon"
+        type="image/png"
+        href="../favicon.png">
+
+  <meta name="theme-color"
+        content="#080d12">
+
+  <meta property="og:title"
+        content="Statui Decorative | Făurit de Busuioc">
+
   <meta property="og:description"
-    content="Colecție de statui decorative pentru curți și grădini.">
-  <meta property="og:url" content="https://fauritdebusuioc.ro/statui/">
-  <meta property="og:type" content="website">
+        content="Modele decorative pentru curți, grădini și spații exterioare.">
+
+  <meta property="og:image"
+        content="https://fauritdebusuioc.ro/logo-faurit.png">
+
+  <meta property="og:url"
+        content="https://fauritdebusuioc.ro/statui/">
+
+  <meta property="og:type"
+        content="website">
 
   <style>
+
     :root {
       --bg: #080d12;
       --bg2: #0d141c;
       --card: #111b25;
-      --text: #ffffff;
-      --muted: #aab5c3;
       --green: #00d68f;
-      --border: rgba(255,255,255,0.08);
+      --green-light: #14eba1;
+      --white: #ffffff;
+      --muted: #aab5c3;
+      --border: rgba(255,255,255,.08);
+      --shadow: 0 25px 70px rgba(0,0,0,.42);
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
       scroll-behavior: smooth;
     }
 
     body {
-      background:
-        radial-gradient(circle at 15% 20%, rgba(0,214,143,.08), transparent 30%),
-        radial-gradient(circle at 85% 70%, rgba(0,214,143,.05), transparent 25%),
-        var(--bg);
-      color: var(--text);
       font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(0,214,143,.07), transparent 30%),
+        var(--bg);
+      color: var(--white);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     body::before {
       content: "";
       position: fixed;
       inset: 0;
-      background: url("../favicon.png") center / 430px auto no-repeat;
-      opacity: .02;
+      background:
+        url("../favicon.png")
+        center / 430px auto no-repeat;
+      opacity: .025;
       pointer-events: none;
       z-index: 0;
     }
@@ -64,17 +85,29 @@
       z-index: 1;
     }
 
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
     .container {
-      width: min(1180px, 90%);
+      width: min(1180px,90%);
       margin: auto;
     }
+
+    /* HEADER */
 
     header {
       position: sticky;
       top: 0;
       z-index: 9999;
       background: rgba(8,13,18,.94);
-      backdrop-filter: blur(14px);
+      backdrop-filter: blur(15px);
       border-bottom: 1px solid var(--border);
     }
 
@@ -88,18 +121,19 @@
 
     .logo img {
       height: 56px;
-      display: block;
+      width: auto;
     }
 
     nav {
       display: flex;
-      gap: 24px;
+      gap: 22px;
+      align-items: center;
       flex-wrap: wrap;
+      justify-content: center;
     }
 
     nav a {
-      color: #e8edf2;
-      text-decoration: none;
+      color: #dce4ec;
       font-size: 14px;
       font-weight: 700;
       transition: .25s;
@@ -109,17 +143,22 @@
       color: var(--green);
     }
 
+    /* HERO */
+
     .hero {
-      padding: 95px 0;
-      min-height: 620px;
+      min-height: 650px;
       display: flex;
       align-items: center;
+      padding: 90px 0;
+      background:
+        radial-gradient(circle at 15% 30%, rgba(0,214,143,.14), transparent 30%),
+        radial-gradient(circle at 85% 60%, rgba(0,214,143,.06), transparent 25%);
     }
 
     .hero-grid {
       display: grid;
       grid-template-columns: 1.05fr .95fr;
-      gap: 65px;
+      gap: 60px;
       align-items: center;
     }
 
@@ -128,13 +167,13 @@
       text-transform: uppercase;
       letter-spacing: 4px;
       font-size: 12px;
-      font-weight: 800;
+      font-weight: 900;
+      margin-bottom: 18px;
       display: inline-block;
-      margin-bottom: 20px;
     }
 
     h1 {
-      font-size: clamp(46px, 6vw, 78px);
+      font-size: clamp(48px,6vw,78px);
       line-height: 1;
       letter-spacing: -2px;
       margin-bottom: 24px;
@@ -147,100 +186,166 @@
     .hero p {
       color: var(--muted);
       font-size: 18px;
-      margin-bottom: 30px;
       max-width: 680px;
+      margin-bottom: 30px;
     }
+
+    .hero-image {
+      position: relative;
+    }
+
+    .hero-image::before {
+      content: "";
+      position: absolute;
+      width: 390px;
+      height: 390px;
+      border-radius: 50%;
+      background: rgba(0,214,143,.11);
+      filter: blur(90px);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }
+
+    .hero-image img {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 24px;
+      border: 1px solid rgba(0,214,143,.22);
+      box-shadow: var(--shadow);
+    }
+
+    /* BUTTONS */
 
     .buttons {
       display: flex;
-      gap: 14px;
       flex-wrap: wrap;
+      gap: 13px;
     }
 
     .btn {
       display: inline-flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+      min-height: 48px;
       padding: 13px 24px;
       border-radius: 11px;
-      text-decoration: none;
+      border: 1px solid var(--border);
       font-weight: 800;
       transition: .25s;
-      border: 1px solid var(--border);
     }
 
     .btn-primary {
       background: var(--green);
-      color: #04100c;
-      box-shadow: 0 0 30px rgba(0,214,143,.15);
+      border-color: var(--green);
+      color: #03110c;
     }
 
     .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 35px rgba(0,214,143,.28);
+      background: var(--green-light);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(0,214,143,.24);
     }
 
     .btn-dark {
       color: white;
-      background: rgba(255,255,255,.025);
+      background: rgba(255,255,255,.03);
     }
 
     .btn-dark:hover {
       color: var(--green);
-      border-color: rgba(0,214,143,.4);
+      border-color: rgba(0,214,143,.5);
+      transform: translateY(-3px);
     }
 
-    .hero-image img {
-      width: 100%;
-      display: block;
-      border-radius: 24px;
-      border: 1px solid rgba(0,214,143,.2);
-      box-shadow: 0 25px 70px rgba(0,0,0,.45);
-    }
+    /* SECTIONS */
 
     section {
       padding: 90px 0;
     }
 
     .dark-section {
-      background: rgba(13,20,28,.62);
+      background: rgba(13,20,28,.70);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
 
-    .section-heading {
-      max-width: 780px;
-      margin-bottom: 42px;
-    }
-
-    .section-heading.center {
-      margin-left: auto;
-      margin-right: auto;
+    .heading {
       text-align: center;
+      max-width: 800px;
+      margin: 0 auto 48px;
     }
 
-    .section-heading span {
+    .heading span {
       color: var(--green);
       text-transform: uppercase;
       letter-spacing: 3px;
       font-size: 12px;
-      font-weight: 800;
+      font-weight: 900;
     }
 
-    .section-heading h2 {
-      font-size: clamp(34px, 4vw, 52px);
+    .heading h2 {
+      font-size: clamp(35px,4vw,52px);
       line-height: 1.05;
-      margin: 12px 0 17px;
+      margin: 12px 0 16px;
     }
 
-    .section-heading p {
+    .heading p {
       color: var(--muted);
       font-size: 17px;
     }
 
+    /* FEATURES */
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 18px;
+    }
+
+    .feature {
+      padding: 28px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(18,30,40,.95),
+          rgba(10,17,24,.95)
+        );
+      transition: .3s;
+    }
+
+    .feature:hover {
+      transform: translateY(-6px);
+      border-color: rgba(0,214,143,.35);
+    }
+
+    .feature-number {
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .feature h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .feature p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* GALLERY */
+
     .gallery {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3,1fr);
       gap: 18px;
     }
 
@@ -264,8 +369,14 @@
       width: 100%;
       aspect-ratio: 4 / 3;
       object-fit: cover;
-      display: block;
+      transition: transform .35s;
     }
+
+    .photo:hover img {
+      transform: scale(1.05);
+    }
+
+    /* COMPACT GALLERY */
 
     .gallery.gallery-collapsed .photo:nth-child(n+4) {
       display: none;
@@ -273,6 +384,7 @@
 
     .gallery .photo.gallery-more {
       position: relative;
+      cursor: pointer;
     }
 
     .gallery.gallery-collapsed .photo.gallery-more::after {
@@ -280,14 +392,19 @@
       position: absolute;
       inset: 0;
       display: flex;
-      align-items: center;
       justify-content: center;
-      background: rgba(8,13,18,.72);
+      align-items: center;
+      background: rgba(8,13,18,.74);
       color: white;
       font-size: 30px;
-      font-weight: 800;
-      backdrop-filter: blur(2px);
+      font-weight: 900;
+      backdrop-filter: blur(3px);
       text-shadow: 0 0 15px rgba(0,214,143,.6);
+    }
+
+    .gallery.gallery-collapsed .photo.gallery-more:hover::after {
+      background: rgba(8,13,18,.62);
+      color: var(--green);
     }
 
     .gallery-collapse-btn {
@@ -298,57 +415,45 @@
       border-radius: 10px;
       background: rgba(0,214,143,.08);
       color: white;
-      font-weight: 700;
+      font-weight: 800;
       cursor: pointer;
+      transition: .25s;
     }
 
     .gallery-collapse-btn.visible {
       display: block;
     }
 
-    .features {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+    .gallery-collapse-btn:hover {
+      background: var(--green);
+      color: #03110c;
     }
 
-    .feature {
-      padding: 28px;
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      background: linear-gradient(145deg, rgba(18,30,40,.95), rgba(10,17,24,.95));
-    }
+    /* CONTACT */
 
-    .feature h3 {
-      margin-bottom: 10px;
-    }
-
-    .feature p {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .cta {
+    .contact {
+      padding: 55px 30px;
       border-radius: 26px;
-      padding: 55px;
       text-align: center;
-      border: 1px solid rgba(0,214,143,.23);
       background:
         radial-gradient(circle at center, rgba(0,214,143,.09), transparent 65%),
         var(--card);
-      box-shadow: 0 25px 70px rgba(0,0,0,.45);
+      border: 1px solid rgba(0,214,143,.23);
+      box-shadow: var(--shadow);
     }
 
-    .cta h2 {
-      font-size: clamp(32px,4vw,50px);
-      margin-bottom: 15px;
+    .contact h2 {
+      font-size: clamp(34px,4vw,50px);
+      margin-bottom: 14px;
     }
 
-    .cta p {
+    .contact p {
       max-width: 700px;
       margin: 0 auto 28px;
       color: var(--muted);
     }
+
+    /* LIGHTBOX */
 
     .lightbox {
       display: none;
@@ -368,20 +473,27 @@
     .lightbox img {
       max-width: 92vw;
       max-height: 90vh;
+      width: auto;
+      height: auto;
       object-fit: contain;
       border-radius: 12px;
+      box-shadow: 0 0 35px rgba(0,214,143,.17);
     }
 
     .lightbox-close {
       position: absolute;
-      top: 18px;
       right: 25px;
-      font-size: 40px;
-      color: white;
-      cursor: pointer;
+      top: 18px;
       border: 0;
       background: none;
+      color: white;
+      font-size: 42px;
+      cursor: pointer;
       z-index: 20001;
+    }
+
+    .lightbox-close:hover {
+      color: var(--green);
     }
 
     .lightbox-arrow {
@@ -390,13 +502,17 @@
       transform: translateY(-50%);
       width: 52px;
       height: 52px;
-      border: none;
+      border: 0;
       border-radius: 50%;
       background: rgba(0,0,0,.55);
       color: white;
-      font-size: 30px;
+      font-size: 29px;
       cursor: pointer;
       z-index: 20001;
+    }
+
+    .lightbox-arrow:hover {
+      background: rgba(0,214,143,.85);
     }
 
     .lightbox-prev {
@@ -412,33 +528,35 @@
     }
 
     footer {
-      padding: 35px 0;
+      padding: 35px 20px;
       text-align: center;
-      color: var(--muted);
       border-top: 1px solid var(--border);
-      font-size: 14px;
+      color: #7f8b97;
     }
 
     footer strong {
       color: white;
     }
 
-    @media (max-width: 900px) {
+    @media(max-width:900px) {
+
       .hero-grid {
         grid-template-columns: 1fr;
       }
 
-      .gallery,
-      .features {
-        grid-template-columns: repeat(2, 1fr);
+      .features,
+      .gallery {
+        grid-template-columns: repeat(2,1fr);
       }
+
     }
 
-    @media (max-width: 700px) {
+    @media(max-width:700px) {
+
       .navbar {
         flex-direction: column;
-        gap: 10px;
         padding: 12px 0;
+        gap: 10px;
       }
 
       .logo img {
@@ -446,7 +564,6 @@
       }
 
       nav {
-        justify-content: center;
         gap: 13px;
       }
 
@@ -463,19 +580,13 @@
         padding: 70px 0;
       }
 
-      .gallery,
-      .features {
+      .features,
+      .gallery {
         grid-template-columns: 1fr;
       }
 
-      .cta {
-        padding: 35px 22px;
-      }
-
-      .lightbox-arrow {
-        width: 44px;
-        height: 44px;
-        font-size: 25px;
+      .contact {
+        padding: 38px 22px;
       }
 
       .lightbox-prev {
@@ -485,36 +596,70 @@
       .lightbox-next {
         right: 8px;
       }
+
+      .lightbox-arrow {
+        width: 44px;
+        height: 44px;
+        font-size: 24px;
+      }
+
     }
+
   </style>
 </head>
 
 <body>
 
   <header>
+
     <div class="container navbar">
 
-      <a href="https://fauritdebusuioc.ro/" class="logo">
-        <img src="../logo-faurit.png" alt="Făurit de Busuioc">
+      <a href="https://fauritdebusuioc.ro/"
+         class="logo">
+
+        <img src="../logo-faurit.png"
+             alt="Făurit de Busuioc">
+
       </a>
 
       <nav>
-        <a href="https://fauritdebusuioc.ro/">Acasă</a>
-        <a href="#colectie">Colecție</a>
-        <a href="#detalii">Detalii</a>
-        <a href="#contact">Contact</a>
+
+        <a href="https://fauritdebusuioc.ro/">
+          Acasă
+        </a>
+
+        <a href="#colectie">
+          Colecție
+        </a>
+
+        <a href="#detalii">
+          Detalii
+        </a>
+
+        <a href="#contact">
+          Contact
+        </a>
+
       </nav>
 
     </div>
+
   </header>
+
 
   <main>
 
+    <!-- HERO -->
+
     <section class="hero">
+
       <div class="container hero-grid">
 
         <div>
-          <span class="eyebrow">Făurit de Busuioc • Statui decorative</span>
+
+          <span class="eyebrow">
+            Făurit de Busuioc • Statui
+          </span>
 
           <h1>
             Detalii care dau<br>
@@ -522,143 +667,236 @@
           </h1>
 
           <p>
-            Modele decorative pentru curți, grădini și spații exterioare.
-            Colecția Făurit de Busuioc combină forme clasice, personaje
-            decorative și elemente potrivite pentru amenajarea unui spațiu cu personalitate.
+            Statui și modele decorative pentru curți,
+            grădini și spații exterioare.
+            Colecția Făurit de Busuioc crește permanent
+            pe măsură ce sunt realizate modele noi.
           </p>
 
           <div class="buttons">
-            <a href="#colectie" class="btn btn-primary">Vezi colecția</a>
 
-            <a href="https://wa.me/40786594999?text=Buna%2C%20ma%20intereseaza%20statuile%20decorative."
-              target="_blank"
-              class="btn btn-dark">
-              Întreabă pe WhatsApp
+            <a href="#colectie"
+               class="btn btn-primary">
+
+              Vezi colecția
+
             </a>
+
+            <a href="https://wa.me/40786594999?text=Buna%2C%20ma%20intereseaza%20o%20statuie%20decorativa."
+               target="_blank"
+               class="btn btn-dark">
+
+              Întreabă pe WhatsApp
+
+            </a>
+
           </div>
+
         </div>
 
+
         <div class="hero-image">
-          <img src="../images/statui/vultur.jpeg"
-            alt="Statuie decorativă Făurit de Busuioc">
+
+          <img src="vultur.jpeg.jpeg"
+               alt="Vultur decorativ Făurit de Busuioc">
+
         </div>
 
       </div>
+
     </section>
 
-    <section id="colectie" class="dark-section">
+
+    <!-- COLECTIE -->
+
+    <section id="colectie"
+             class="dark-section">
+
       <div class="container">
 
-        <div class="section-heading center">
-          <span>Colecția Făurit de Busuioc</span>
-          <h2>Modele decorative pentru exterior</h2>
+        <div class="heading">
+
+          <span>
+            Colecția
+          </span>
+
+          <h2>
+            Modele decorative
+          </h2>
+
           <p>
-            Vezi modelele disponibile. Apasă pe orice imagine pentru a o deschide
-            la dimensiune mare și folosește săgețile pentru navigare.
+            Apasă pe imagine pentru mărire.
+            Colecția va fi completată cu modele noi.
           </p>
+
         </div>
+
 
         <div class="gallery">
 
           <div class="photo">
-            <img src="../images/statui/ciuperca-casa.jpeg"
-              alt="Ciupercă Casă decorativă">
+            <img src="pitic-rusinos.jpeg.jpeg"
+                 alt="Pitic rușinos decorativ">
           </div>
 
           <div class="photo">
-            <img src="../images/statui/ciuperci.jpeg"
-              alt="Ciuperci decorative">
+            <img src="vultur.jpeg.jpeg"
+                 alt="Vultur decorativ">
           </div>
 
           <div class="photo">
-            <img src="../images/statui/ingeras.jpeg"
-              alt="Îngeraș decorativ">
+            <img src="ciuperca-casa.jpeg.jpeg"
+                 alt="Ciupercă casă decorativă">
           </div>
 
           <div class="photo">
-            <img src="../images/statui/pitic-intelept.jpeg"
-              alt="Pitic Înțelept">
+            <img src="ciuperci.jpeg.jpeg"
+                 alt="Ciuperci decorative">
           </div>
 
           <div class="photo">
-            <img src="../images/statui/pitic-rusinos.jpeg"
-              alt="Pitic Rușinos">
+            <img src="ingeras.jpeg.jpeg"
+                 alt="Îngeraș decorativ">
           </div>
 
           <div class="photo">
-            <img src="../images/statui/vultur.jpeg"
-              alt="Vultur decorativ">
+            <img src="pitic-intelept.jpeg.jpeg"
+                 alt="Pitic înțelept decorativ">
           </div>
 
         </div>
 
       </div>
+
     </section>
 
+
+    <!-- DETALII -->
+
     <section id="detalii">
+
       <div class="container">
 
-        <div class="section-heading center">
-          <span>De ce să alegi colecția</span>
-          <h2>Decor simplu, dar cu impact</h2>
+        <div class="heading">
+
+          <span>
+            Făurit de Busuioc
+          </span>
+
+          <h2>
+            Decorațiuni pentru exterior
+          </h2>
+
+          <p>
+            Modele potrivite pentru curți,
+            grădini și alte spații care pot fi
+            personalizate prin decor.
+          </p>
+
         </div>
+
 
         <div class="features">
 
           <div class="feature">
-            <h3>Pentru curți și grădini</h3>
+
+            <div class="feature-number">
+              01
+            </div>
+
+            <h3>
+              Pentru curți
+            </h3>
+
             <p>
-              Modele potrivite pentru zone verzi, alei, intrări și diferite
-              amenajări exterioare.
+              Elemente decorative care pot completa
+              aspectul curții sau al intrării.
             </p>
+
           </div>
 
-          <div class="feature">
-            <h3>Modele variate</h3>
-            <p>
-              De la personaje decorative până la animale și elemente clasice
-              pentru grădină.
-            </p>
-          </div>
 
           <div class="feature">
-            <h3>Detalii la comandă</h3>
+
+            <div class="feature-number">
+              02
+            </div>
+
+            <h3>
+              Pentru grădini
+            </h3>
+
             <p>
-              Pentru disponibilitate, modele și informații suplimentare,
-              ne poți contacta direct pe WhatsApp.
+              Modele potrivite pentru spații verzi,
+              alei și zone decorative.
             </p>
+
+          </div>
+
+
+          <div class="feature">
+
+            <div class="feature-number">
+              03
+            </div>
+
+            <h3>
+              Modele noi
+            </h3>
+
+            <p>
+              Colecția este în dezvoltare și va primi
+              permanent modele și exemple noi.
+            </p>
+
           </div>
 
         </div>
 
       </div>
+
     </section>
 
-    <section id="contact" class="dark-section">
+
+    <!-- CONTACT -->
+
+    <section id="contact"
+             class="dark-section">
+
       <div class="container">
 
-        <div class="cta">
+        <div class="contact">
 
-          <span class="eyebrow">Te interesează un model?</span>
+          <span class="eyebrow">
+            Te interesează un model?
+          </span>
 
-          <h2>Întreabă direct despre disponibilitate.</h2>
+          <h2>
+            Scrie-mi direct.
+          </h2>
 
           <p>
-            Trimite un mesaj și spune-ne ce model te interesează.
-            Îți oferim detalii despre disponibilitate și comandă.
+            Spune-mi ce model te interesează
+            sau trimite o fotografie cu ideea ta
+            și discutăm despre disponibilitate.
           </p>
 
-          <div class="buttons" style="justify-content:center;">
+          <div class="buttons"
+               style="justify-content:center;">
 
             <a href="https://wa.me/40786594999?text=Buna%2C%20ma%20intereseaza%20o%20statuie%20decorativa."
-              target="_blank"
-              class="btn btn-primary">
+               target="_blank"
+               class="btn btn-primary">
+
               WhatsApp
+
             </a>
 
             <a href="mailto:busuiocandrei97@gmail.com"
-              class="btn btn-dark">
+               class="btn btn-dark">
+
               Email
+
             </a>
 
           </div>
@@ -666,160 +904,332 @@
         </div>
 
       </div>
+
     </section>
 
   </main>
 
-  <div id="imageLightbox" class="lightbox">
 
-    <button class="lightbox-close" id="imageLightboxClose">&times;</button>
+  <!-- LIGHTBOX -->
 
-    <button class="lightbox-arrow lightbox-prev" id="lightboxPrev">&#10094;</button>
+  <div id="lightbox"
+       class="lightbox">
 
-    <img id="imageLightboxImg" src="" alt="Imagine mărită">
+    <button class="lightbox-close"
+            id="closeLightbox">
+      &times;
+    </button>
 
-    <button class="lightbox-arrow lightbox-next" id="lightboxNext">&#10095;</button>
+    <button class="lightbox-arrow lightbox-prev"
+            id="prevImage">
+      &#10094;
+    </button>
+
+    <img id="lightboxImage"
+         src=""
+         alt="Imagine mărită">
+
+    <button class="lightbox-arrow lightbox-next"
+            id="nextImage">
+      &#10095;
+    </button>
 
   </div>
 
+
   <footer>
-    <div class="container">
-      © 2026 <strong>Făurit de Busuioc</strong> • Din idee, în realitate • Toate drepturile rezervate
-    </div>
+
+    © 2026
+    <strong>Făurit de Busuioc</strong>
+    • Din idee, în realitate
+    • Toate drepturile rezervate
+
   </footer>
 
+
   <script>
+
     document.addEventListener("DOMContentLoaded", function () {
 
-      const gallery = document.querySelector(".gallery");
-      const photos = Array.from(gallery.querySelectorAll(".photo"));
+      const gallery =
+        document.querySelector(".gallery");
+
+      const photos =
+        Array.from(
+          gallery.querySelectorAll(".photo")
+        );
+
+
+      /* GALERIE COMPACTA */
 
       if (photos.length > 3) {
-        gallery.classList.add("gallery-collapsed");
 
-        const thirdPhoto = photos[2];
-        const hiddenCount = photos.length - 3;
+        gallery.classList.add(
+          "gallery-collapsed"
+        );
 
-        thirdPhoto.classList.add("gallery-more");
-        thirdPhoto.setAttribute("data-more", "+" + hiddenCount + " poze");
+        const thirdPhoto =
+          photos[2];
 
-        const collapseBtn = document.createElement("button");
-        collapseBtn.className = "gallery-collapse-btn";
-        collapseBtn.textContent = "Ascunde pozele";
+        const hiddenCount =
+          photos.length - 3;
 
-        gallery.insertAdjacentElement("afterend", collapseBtn);
+        thirdPhoto.classList.add(
+          "gallery-more"
+        );
 
-        thirdPhoto.addEventListener("click", function (e) {
-          if (gallery.classList.contains("gallery-collapsed")) {
-            e.preventDefault();
-            e.stopPropagation();
+        thirdPhoto.setAttribute(
+          "data-more",
+          "+" + hiddenCount + " poze"
+        );
 
-            gallery.classList.remove("gallery-collapsed");
-            collapseBtn.classList.add("visible");
+
+        const collapseButton =
+          document.createElement("button");
+
+        collapseButton.className =
+          "gallery-collapse-btn";
+
+        collapseButton.textContent =
+          "Ascunde pozele";
+
+        gallery.insertAdjacentElement(
+          "afterend",
+          collapseButton
+        );
+
+
+        thirdPhoto.addEventListener(
+          "click",
+          function (event) {
+
+            if (
+              gallery.classList.contains(
+                "gallery-collapsed"
+              )
+            ) {
+
+              event.preventDefault();
+              event.stopPropagation();
+
+              gallery.classList.remove(
+                "gallery-collapsed"
+              );
+
+              collapseButton.classList.add(
+                "visible"
+              );
+
+            }
+
+          },
+          true
+        );
+
+
+        collapseButton.addEventListener(
+          "click",
+          function () {
+
+            gallery.classList.add(
+              "gallery-collapsed"
+            );
+
+            collapseButton.classList.remove(
+              "visible"
+            );
+
+            gallery.scrollIntoView({
+              behavior: "smooth",
+              block: "start"
+            });
+
           }
-        }, true);
+        );
 
-        collapseBtn.addEventListener("click", function () {
-          gallery.classList.add("gallery-collapsed");
-          collapseBtn.classList.remove("visible");
-
-          gallery.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-          });
-        });
       }
 
-      const lightbox = document.getElementById("imageLightbox");
-      const lightboxImg = document.getElementById("imageLightboxImg");
-      const closeBtn = document.getElementById("imageLightboxClose");
-      const prevBtn = document.getElementById("lightboxPrev");
-      const nextBtn = document.getElementById("lightboxNext");
 
-      let images = [];
+      /* LIGHTBOX */
+
+      const lightbox =
+        document.getElementById("lightbox");
+
+      const lightboxImage =
+        document.getElementById("lightboxImage");
+
+      const closeButton =
+        document.getElementById("closeLightbox");
+
+      const prevButton =
+        document.getElementById("prevImage");
+
+      const nextButton =
+        document.getElementById("nextImage");
+
+      const images =
+        Array.from(
+          gallery.querySelectorAll("img")
+        );
+
       let currentIndex = 0;
 
-      function getVisibleImages(clickedImg) {
-        const currentGallery = clickedImg.closest(".gallery");
-
-        if (currentGallery) {
-          return Array.from(currentGallery.querySelectorAll("img"))
-            .filter(img => img.offsetParent !== null);
-        }
-
-        return [clickedImg];
-      }
 
       function showImage(index) {
-        if (!images.length) return;
 
         if (index < 0) {
-          currentIndex = images.length - 1;
-        } else if (index >= images.length) {
+          currentIndex =
+            images.length - 1;
+        }
+
+        else if (
+          index >= images.length
+        ) {
           currentIndex = 0;
-        } else {
+        }
+
+        else {
           currentIndex = index;
         }
 
-        lightboxImg.src = images[currentIndex].src;
-        lightboxImg.alt = images[currentIndex].alt || "Imagine mărită";
+        lightboxImage.src =
+          images[currentIndex].src;
+
+        lightboxImage.alt =
+          images[currentIndex].alt ||
+          "Imagine mărită";
+
       }
 
-      document.querySelectorAll(".gallery img").forEach(function (img) {
-        img.addEventListener("click", function (e) {
-          e.preventDefault();
 
-          images = getVisibleImages(this);
-          currentIndex = images.indexOf(this);
+      images.forEach(
+        function (image,index) {
 
-          showImage(currentIndex);
+          image.addEventListener(
+            "click",
+            function () {
 
-          lightbox.classList.add("active");
-          document.body.classList.add("lightbox-open");
-        });
-      });
+              currentIndex = index;
 
-      prevBtn.addEventListener("click", function (e) {
-        e.stopPropagation();
-        showImage(currentIndex - 1);
-      });
+              showImage(
+                currentIndex
+              );
 
-      nextBtn.addEventListener("click", function (e) {
-        e.stopPropagation();
-        showImage(currentIndex + 1);
-      });
+              lightbox.classList.add(
+                "active"
+              );
+
+              document.body.classList.add(
+                "lightbox-open"
+              );
+
+            }
+          );
+
+        }
+      );
+
+
+      prevButton.addEventListener(
+        "click",
+        function (event) {
+
+          event.stopPropagation();
+
+          showImage(
+            currentIndex - 1
+          );
+
+        }
+      );
+
+
+      nextButton.addEventListener(
+        "click",
+        function (event) {
+
+          event.stopPropagation();
+
+          showImage(
+            currentIndex + 1
+          );
+
+        }
+      );
+
 
       function closeLightbox() {
-        lightbox.classList.remove("active");
-        document.body.classList.remove("lightbox-open");
-        lightboxImg.src = "";
+
+        lightbox.classList.remove(
+          "active"
+        );
+
+        document.body.classList.remove(
+          "lightbox-open"
+        );
+
+        lightboxImage.src = "";
+
       }
 
-      closeBtn.addEventListener("click", closeLightbox);
 
-      lightbox.addEventListener("click", function (e) {
-        if (e.target === lightbox) {
-          closeLightbox();
+      closeButton.addEventListener(
+        "click",
+        closeLightbox
+      );
+
+
+      lightbox.addEventListener(
+        "click",
+        function (event) {
+
+          if (
+            event.target === lightbox
+          ) {
+            closeLightbox();
+          }
+
         }
-      });
+      );
 
-      document.addEventListener("keydown", function (e) {
-        if (!lightbox.classList.contains("active")) return;
 
-        if (e.key === "Escape") {
-          closeLightbox();
+      document.addEventListener(
+        "keydown",
+        function (event) {
+
+          if (
+            !lightbox.classList.contains(
+              "active"
+            )
+          ) return;
+
+          if (
+            event.key === "Escape"
+          ) {
+            closeLightbox();
+          }
+
+          if (
+            event.key === "ArrowLeft"
+          ) {
+            showImage(
+              currentIndex - 1
+            );
+          }
+
+          if (
+            event.key === "ArrowRight"
+          ) {
+            showImage(
+              currentIndex + 1
+            );
+          }
+
         }
-
-        if (e.key === "ArrowLeft") {
-          showImage(currentIndex - 1);
-        }
-
-        if (e.key === "ArrowRight") {
-          showImage(currentIndex + 1);
-        }
-      });
+      );
 
     });
+
   </script>
 
 </body>
