@@ -1910,6 +1910,80 @@
 
     }
 
+  
+
+    /* =========================
+       SERVICE TICKER
+    ========================= */
+
+    .service-ticker {
+      position: relative;
+      z-index: 5;
+      overflow: hidden;
+      width: 100%;
+      background: linear-gradient(90deg, #00b978, #00d68f, #14eba1, #00d68f);
+      border-top: 1px solid rgba(255,255,255,.12);
+      border-bottom: 1px solid rgba(0,0,0,.35);
+      box-shadow: 0 12px 35px rgba(0,214,143,.13);
+    }
+
+    .service-ticker-track {
+      display: flex;
+      width: max-content;
+      animation: serviceTicker 24s linear infinite;
+      will-change: transform;
+    }
+
+    .service-ticker-group {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .service-ticker-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 22px;
+      padding: 16px 26px;
+      color: #03110c;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+    }
+
+    .service-ticker-item::after {
+      content: "◆";
+      font-size: 8px;
+      opacity: .65;
+    }
+
+    .service-ticker:hover .service-ticker-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes serviceTicker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    @media (max-width: 640px) {
+      .service-ticker-item {
+        padding: 13px 18px;
+        font-size: 11px;
+        letter-spacing: 1.6px;
+        gap: 16px;
+      }
+      .service-ticker-track {
+        animation-duration: 20s;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .service-ticker-track { animation: none; }
+    }
+
   </style>
 
 </head>
@@ -2058,6 +2132,34 @@
 
     </section>
 
+    <!-- BANDĂ ANIMATĂ SERVICII -->
+    <div class="service-ticker" aria-label="Servicii Făurit de Busuioc">
+      <div class="service-ticker-track">
+
+      <div class="service-ticker-group" aria-hidden="true">
+        <span class="service-ticker-item">Stickere Auto</span>
+        <span class="service-ticker-item">Branding Auto</span>
+        <span class="service-ticker-item">Stickere Magnetice</span>
+        <span class="service-ticker-item">Creare Site-uri</span>
+        <span class="service-ticker-item">Amenajări Interioare</span>
+        <span class="service-ticker-item">Statui Decorative</span>
+        <span class="service-ticker-item">Design Personalizat</span>
+      </div>
+
+      <div class="service-ticker-group" aria-hidden="true">
+        <span class="service-ticker-item">Stickere Auto</span>
+        <span class="service-ticker-item">Branding Auto</span>
+        <span class="service-ticker-item">Stickere Magnetice</span>
+        <span class="service-ticker-item">Creare Site-uri</span>
+        <span class="service-ticker-item">Amenajări Interioare</span>
+        <span class="service-ticker-item">Statui Decorative</span>
+        <span class="service-ticker-item">Design Personalizat</span>
+      </div>
+      </div>
+    </div>
+
+
+
 
 
     <!-- =====================
@@ -2144,18 +2246,18 @@
 
 
 
-          <!-- STICKERE AUTO -->
+          <!-- LUCRARI -->
 
 
           <a
-            href="stickere-auto/"
-            class="hub-card reveal">
+            href="lucrari/"
+            class="hub-card reveal delay-1">
 
             <div class="hub-image">
 
               <img
-                src="stickere-auto/stickere-auto-premium.png"
-                alt="Stickere auto premium Făurit de Busuioc">
+                src="lucrari/1.jpeg"
+                alt="Lucrări amenajări Făurit de Busuioc">
 
             </div>
 
@@ -2163,22 +2265,26 @@
             <div class="hub-content">
 
               <span class="hub-number">
-                05 • AUTO DESIGN
+                02 • LUCRĂRI
               </span>
 
               <h3>
-                Stickere Auto
+                Lucrări & Amenajări
               </h3>
 
               <p>
-                Design personalizat pentru capotă,
-                portiere, lunetă, logo-uri și
-                personalizare vizuală auto.
+
+                Amenajări, băi, gresie, faianță,
+                parchet, electrică și lucrări tehnice.
+
               </p>
 
               <div class="hub-link">
-                Vezi categoria
+
+                Vezi lucrările
+
                 <span>→</span>
+
               </div>
 
             </div>
@@ -2241,18 +2347,18 @@
           
 
 
-          <!-- LUCRARI -->
+          <!-- STICKERE AUTO -->
 
 
           <a
-            href="lucrari/"
-            class="hub-card reveal delay-1">
+            href="stickere-auto/"
+            class="hub-card reveal">
 
             <div class="hub-image">
 
               <img
-                src="lucrari/1.jpeg"
-                alt="Lucrări amenajări Făurit de Busuioc">
+                src="stickere-auto/stickere-auto-premium.png"
+                alt="Stickere auto premium Făurit de Busuioc">
 
             </div>
 
@@ -2260,26 +2366,22 @@
             <div class="hub-content">
 
               <span class="hub-number">
-                02 • LUCRĂRI
+                05 • AUTO DESIGN
               </span>
 
               <h3>
-                Lucrări & Amenajări
+                Stickere Auto
               </h3>
 
               <p>
-
-                Amenajări, băi, gresie, faianță,
-                parchet, electrică și lucrări tehnice.
-
+                Design personalizat pentru capotă,
+                portiere, lunetă, logo-uri și
+                personalizare vizuală auto.
               </p>
 
               <div class="hub-link">
-
-                Vezi lucrările
-
+                Vezi categoria
                 <span>→</span>
-
               </div>
 
             </div>
