@@ -30,8 +30,8 @@ if 'href="stickere-auto/"' not in s:
             <div class="hub-image">
 
               <img
-                src="logo-faurit.png"
-                alt="Stickere auto personalizate Făurit de Busuioc">
+                src="stickere-auto/stickere-auto-premium.png"
+                alt="Stickere auto premium Făurit de Busuioc">
 
             </div>
 
@@ -47,9 +47,8 @@ if 'href="stickere-auto/"' not in s:
               </h3>
 
               <p>
-                Design personalizat pentru capotă,
-                portiere, lunetă, logo-uri și
-                personalizare vizuală auto.
+                Design premium pentru capotă, portiere,
+                lunetă, branding auto și stickere magnetice.
               </p>
 
               <div class="hub-link">
@@ -72,5 +71,13 @@ if 'href="stickere-auto/"' not in s:
         raise SystemExit('Finalul cardului Afișe nu a fost găsit')
     close += len('          </a>')
     s = s[:close] + card + s[close:]
+else:
+    start = s.find('href="stickere-auto/"')
+    end = s.find('</a>', start)
+    if start != -1 and end != -1:
+        block = s[start:end]
+        block = block.replace('src="logo-faurit.png"', 'src="stickere-auto/stickere-auto-premium.png"')
+        block = block.replace('alt="Stickere auto personalizate Făurit de Busuioc"', 'alt="Stickere auto premium Făurit de Busuioc"')
+        s = s[:start] + block + s[end:]
 
 p.write_text(s, encoding='utf-8')
