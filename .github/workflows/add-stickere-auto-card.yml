@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/add-stickere-auto-card.yml'
+      - 'scripts/add_stickere_auto.py'
 
 permissions:
   contents: write
@@ -13,99 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Add Stickere Auto to homepage
-        run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          p = Path('index.html')
-          s = p.read_text(encoding='utf-8')
-
-          s = s.replace('Patru direcții. Un singur brand.', 'Cinci direcții. Un singur brand.')
-          s = s.replace('proiecte reale și digitale: amenajări și lucrări, statui decorative, creare site-uri web și afișe personalizate A4.', 'proiecte reale și digitale: amenajări și lucrări, statui decorative, creare site-uri web, afișe personalizate și stickere auto.')
-          s = s.replace('site-uri web și afișe personalizate —', 'site-uri web, afișe personalizate și stickere auto —')
-
-          marker = '''            <span>
-              Design & Print
-            </span>'''
-          if 'Stickere Auto' not in s and marker in s:
-              s = s.replace(marker, marker + '''
-
-            <span>
-              Stickere Auto
-            </span>''')
-
-          card = '''
-
-
-          <!-- STICKERE AUTO -->
-
-
-          <a
-            href="stickere-auto/"
-            class="hub-card reveal delay-4">
-
-            <div class="hub-image">
-
-              <img
-                src="logo-faurit.png"
-                alt="Stickere auto personalizate Făurit de Busuioc">
-
-            </div>
-
-
-            <div class="hub-content">
-
-              <span class="hub-number">
-                05 • AUTO DESIGN
-              </span>
-
-              <h3>
-                Stickere Auto
-              </h3>
-
-              <p>
-
-                Design personalizat pentru capotă,
-                portiere, lunetă, logo-uri și
-                personalizare vizuală auto.
-
-              </p>
-
-              <div class="hub-link">
-
-                Vezi categoria
-
-                <span>→</span>
-
-              </div>
-
-            </div>
-
-          </a>
-'''
-
-          if 'href="stickere-auto/"' not in s:
-              needle = '''              <h3>
-                Afișe Personalizate
-              </h3>'''
-              pos = s.find(needle)
-              if pos == -1:
-                  raise SystemExit('Nu am găsit cardul Afișe Personalizate')
-              close = s.find('          </a>', pos)
-              if close == -1:
-                  raise SystemExit('Nu am găsit finalul cardului Afișe')
-              close += len('          </a>')
-              s = s[:close] + card + s[close:]
-
-          p.write_text(s, encoding='utf-8')
-          PY
-      - name: Commit homepage update
-        run: |
+      - run: python3 scripts/add_stickere_auto.py
+      - run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
-          git diff --cached --quiet && exit 0
-          git commit -m "Add Stickere Auto category to homepage"
+          git diff --cached --quiet || git commit -m "Add Stickere Auto category to homepage"
           git push
