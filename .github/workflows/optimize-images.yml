@@ -1,0 +1,157 @@
+name: Optimize site images
+
+on:
+  push:
+    paths:
+      - '.github/workflows/optimize-images.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Pillow
+        run: python -m pip install --upgrade pillow
+
+      - name: Optimize images and update references
+        shell: bash
+        run: |
+          python <<'PY'
+          from pathlib import Path
+          from PIL import Image, ImageOps
+          import os
+
+          ROOT = Path('.')
+
+          def ensure_parent(path):
+              Path(path).parent.mkdir(parents=True, exist_ok=True)
+
+          def open_fixed(src):
+              im = Image.open(src)
+              return ImageOps.exif_transpose(im)
+
+          def resize_max(im, max_w=None, max_h=None):
+              if not max_w and not max_h:
+                  return im
+              w, h = im.size
+              scale = 1.0
+              if max_w and w > max_w:
+                  scale = min(scale, max_w / w)
+              if max_h and h > max_h:
+                  scale = min(scale, max_h / h)
+              if scale < 1:
+                  im = im.resize((max(1, round(w*scale)), max(1, round(h*scale))), Image.Resampling.LANCZOS)
+              return im
+
+          def save_webp(src, dst, max_w=1600, quality=82):
+              if not Path(src).exists():
+                  print('SKIP missing', src)
+                  return
+              ensure_parent(dst)
+              im = resize_max(open_fixed(src), max_w=max_w)
+              if im.mode not in ('RGB', 'RGBA'):
+                  im = im.convert('RGBA' if 'transparency' in im.info else 'RGB')
+              im.save(dst, 'WEBP', quality=quality, method=6)
+              print(f'WEBP {src}: {Path(src).stat().st_size/1024:.0f} KB -> {Path(dst).stat().st_size/1024:.0f} KB ({im.size[0]}x{im.size[1]})')
+
+          def optimize_png_in_place(src, max_w=None, max_h=None):
+              src = Path(src)
+              if not src.exists():
+                  return
+              before = src.stat().st_size
+              im = resize_max(open_fixed(src), max_w=max_w, max_h=max_h)
+              if im.mode == 'P':
+                  im = im.convert('RGBA')
+              tmp = src.with_suffix('.optimized.png')
+              im.save(tmp, 'PNG', optimize=True, compress_level=9)
+              tmp.replace(src)
+              print(f'PNG  {src}: {before/1024:.0f} KB -> {src.stat().st_size/1024:.0f} KB ({im.size[0]}x{im.size[1]})')
+
+          # Brand assets: keep PNG compatibility, but shrink them substantially.
+          optimize_png_in_place('logo-faurit.png', max_w=1000)
+          optimize_png_in_place('favicon.png', max_w=512, max_h=512)
+          save_webp('logo-faurit.png', 'logo-faurit.webp', max_w=1000, quality=90)
+
+          # Web / AI page assets.
+          save_webp('creare-site-uri/faurit.png', 'creare-site-uri/faurit.webp', max_w=1400, quality=83)
+          save_webp('creare-site-uri/proiecte AI.png', 'creare-site-uri/proiecte-ai.webp', max_w=1400, quality=83)
+          save_webp('creare-site-uri/site-uri web.png', 'creare-site-uri/site-uri-web.webp', max_w=1400, quality=83)
+
+          # Stickere Auto assets.
+          stickers = [
+              'design-sportiv-decorativ',
+              'stickere-auto-premium',
+              'reclama-auto-firma',
+              'sticker-magnetic-auto-premium',
+              'sticker-portiere',
+              'sticker-capota',
+              'luneta',
+              'sticker-magnetic-duba-firma',
+          ]
+          for name in stickers:
+              save_webp(f'stickere-auto/{name}.png', f'stickere-auto/{name}.webp', max_w=1600, quality=82)
+
+          def edit(path, replacements):
+              p = Path(path)
+              text = p.read_text(encoding='utf-8')
+              old = text
+              for a, b in replacements:
+                  text = text.replace(a, b)
+              if text != old:
+                  p.write_text(text, encoding='utf-8')
+                  print('UPDATED', path)
+
+          # Homepage: use optimized display assets, while social metadata can keep PNG.
+          edit('index.html', [
+              ('background:url("logo-faurit.png")', 'background:url("logo-faurit.webp")'),
+              ('src="logo-faurit.png"', 'src="logo-faurit.webp"'),
+              ('src="creare-site-uri/site-uri web.png"', 'src="creare-site-uri/site-uri-web.webp"'),
+              ('src="stickere-auto/stickere-auto-premium.png"', 'src="stickere-auto/stickere-auto-premium.webp"'),
+          ])
+
+          # Creare Site-uri: hero/preload/gallery use WebP.
+          edit('creare-site-uri/index.html', [
+              ('href="site-uri%20web.png"', 'href="site-uri-web.webp"'),
+              ('src="site-uri%20web.png"', 'src="site-uri-web.webp"'),
+              ('src="faurit.png"', 'src="faurit.webp"'),
+              ('src="proiecte%20AI.png"', 'src="proiecte-ai.webp"'),
+          ])
+
+          # Stickere Auto: display images and preload use WebP; OG/Twitter remain PNG for broad compatibility.
+          edit('stickere-auto/index.html', [
+              ('href="stickere-auto-premium.png"', 'href="stickere-auto-premium.webp"'),
+              ('src="stickere-auto-premium.png"', 'src="stickere-auto-premium.webp"'),
+              ('src="sticker-magnetic-auto-premium.png"', 'src="sticker-magnetic-auto-premium.webp"'),
+              ('src="sticker-capota.png"', 'src="sticker-capota.webp"'),
+              ('src="sticker-portiere.png"', 'src="sticker-portiere.webp"'),
+              ('src="reclama-auto-firma.png"', 'src="reclama-auto-firma.webp"'),
+              ('src="luneta.png"', 'src="luneta.webp"'),
+              ('src="design-sportiv-decorativ.png"', 'src="design-sportiv-decorativ.webp"'),
+              ('src="sticker-magnetic-duba-firma.png"', 'src="sticker-magnetic-duba-firma.webp"'),
+          ])
+          PY
+
+      - name: Commit optimized assets
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No image changes to commit."
+          else
+            git commit -m "Optimize site images for faster loading"
+            git push origin HEAD:main
+          fi
