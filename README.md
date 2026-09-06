@@ -10,18 +10,23 @@ Site oficial și portofoliu pentru proiectele Făurit de Busuioc.
 - Statui decorative
 - Creare site-uri web
 - Proiecte cu AI
-- Afișe personalizate
+- Stickere auto & branding auto
 
 ## Website
 
 https://fauritdebusuioc.ro
 
-## Structura site-ului
+## Structura principală a site-ului
 
 - `/creare-site-uri/`
 - `/lucrari/`
 - `/statui/`
-- `/afise-personalizate/`
+- `/stickere-auto/`
+- `/electrician-focsani/`
+- `/amenajari-interioare-focsani/`
+- `/montaj-aer-conditionat-focsani/`
+- `/creare-site-focsani/`
+- `/statui-decorative-focsani/`
 
 ## Tehnologii folosite
 
