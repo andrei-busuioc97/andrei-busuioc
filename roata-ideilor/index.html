@@ -46,7 +46,8 @@ footer{text-align:center;padding:30px 15px;border-top:1px solid var(--border);co
 </section>
 </main>
 <footer>© 2026 Făurit de Busuioc · Ideile bune merită construite.</footer>
-<scriptconst ideas=[
+<script>
+const ideas=[
 {c:"Amenajări interioare",t:"Transformă un perete gol într-un punct de atracție.",d:"Combină lemn, lumină ambientală și un finisaj decorativ pentru un colț care schimbă întreaga cameră."},
 {c:"Amenajări interioare",t:"Creează un colț de relaxare cu lumină caldă și spațiu de depozitare.",d:"O banchetă, câteva rafturi și iluminare discretă pot transforma un spațiu nefolosit într-un loc util."},
 {c:"Stickere auto",t:"Dă mașinii o semnătură vizuală discretă.",d:"Un design adaptat capotei sau portierelor poate personaliza mașina fără să o încarce."},
@@ -59,7 +60,7 @@ footer{text-align:center;padding:30px 15px;border-top:1px solid var(--border);co
 {c:"Cărți de vizită",t:"Transformă datele tale de contact într-o carte de vizită memorabilă.",d:"Logo, servicii și contact organizate într-un design clar, adaptat identității tale."},
 {c:"Amenajare decorativă",t:"Creează un perete cu lumină LED și elemente personale.",d:"Un decor unic pentru fotografii, colecții, obiecte preferate sau identitatea afacerii tale."},
 {c:"Personalizare creativă",t:"Combină un obiect personalizat cu un cod QR surpriză.",d:"Poate fi pe un tablou, sticker, afiș sau cadou și poate deschide un video, o pagină ori un mesaj."}
-];];
+];
 const wheel=document.getElementById('wheel'),spin=document.getElementById('spin'),spinAgain=document.getElementById('spinAgain'),category=document.getElementById('category'),title=document.getElementById('title'),description=document.getElementById('description'),whatsapp=document.getElementById('whatsapp');
 let rotation=0,busy=false,last=-1;
 function go(){
