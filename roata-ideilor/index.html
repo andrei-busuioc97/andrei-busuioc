@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Roata Ideilor | Făurit de Busuioc</title>
+<meta name="description" content="Învârte Roata Ideilor și descoperă o idee creativă pentru amenajare, personalizare, promovare sau design.">
+<meta name="theme-color" content="#080d12">
+<link rel="canonical" href="https://fauritdebusuioc.ro/roata-ideilor/">
+<style>
+:root{--bg:#070c10;--panel:#0d1715;--green:#00e894;--green2:#8affc8;--text:#f7fbf9;--muted:#9caaa5;--border:rgba(255,255,255,.11)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:radial-gradient(circle at 50% -10%,rgba(0,232,148,.17),transparent 34%),var(--bg);min-height:100vh}a{color:inherit;text-decoration:none}.shell{width:min(1120px,92%);margin:auto}
+header{padding:22px 0;border-bottom:1px solid var(--border);background:rgba(7,12,16,.88);backdrop-filter:blur(14px)}.nav{display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:flex;align-items:center;gap:12px}.mark{width:48px;height:48px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(145deg,#b8c7c0,#18251f);border:1px solid #53665d;color:#07100c;font-weight:1000;box-shadow:inset 0 0 0 2px rgba(255,255,255,.18)}.brand strong{display:block;font-size:17px}.brand small{display:block;color:var(--green);margin-top:2px}.back{padding:11px 16px;border:1px solid rgba(0,232,148,.35);border-radius:999px;color:var(--green2);font-weight:800;font-size:13px}
+main{padding:64px 0 80px}.intro{text-align:center;max-width:760px;margin:0 auto 42px}.eyebrow{color:var(--green);font-size:12px;font-weight:900;letter-spacing:3px;text-transform:uppercase}.intro h1{font-size:clamp(43px,7vw,78px);line-height:.98;margin:14px 0 20px;letter-spacing:-2px}.intro h1 span{color:var(--green)}.intro p{color:var(--muted);font-size:18px;margin:0 auto;max-width:650px}
+.game{display:grid;grid-template-columns:minmax(320px,1fr) minmax(300px,.82fr);gap:42px;align-items:center;padding:38px;border:1px solid var(--border);border-radius:28px;background:linear-gradient(145deg,rgba(14,28,23,.96),rgba(8,15,18,.98));box-shadow:0 28px 80px rgba(0,0,0,.42)}
+.wheel-wrap{position:relative;width:min(540px,100%);aspect-ratio:1;margin:auto;display:grid;place-items:center}.pointer{position:absolute;z-index:6;right:-5px;top:50%;transform:translateY(-50%);width:0;height:0;border-top:20px solid transparent;border-bottom:20px solid transparent;border-right:42px solid #fff;filter:drop-shadow(0 4px 8px rgba(0,0,0,.5))}
+.wheel{position:absolute;inset:4%;border-radius:50%;background:conic-gradient(#00e894 0 30deg,#14241e 30deg 60deg,#00bd78 60deg 90deg,#24322d 90deg 120deg,#00e894 120deg 150deg,#14241e 150deg 180deg,#00bd78 180deg 210deg,#24322d 210deg 240deg,#00e894 240deg 270deg,#14241e 270deg 300deg,#00bd78 300deg 330deg,#24322d 330deg 360deg);border:9px solid #dce7e2;box-shadow:0 0 0 8px #12201a,0 25px 70px rgba(0,0,0,.52),0 0 50px rgba(0,232,148,.18);transition:transform 5.2s cubic-bezier(.1,.67,.08,1)}
+.wheel:after{content:"";position:absolute;inset:8%;border-radius:50%;border:1px solid rgba(255,255,255,.2)}.wheel-icons{position:absolute;inset:0;pointer-events:none}.wheel-icons span{position:absolute;left:50%;top:50%;font-size:25px;transform:translate(-50%,-50%) rotate(var(--a)) translateY(-195px) rotate(calc(-1 * var(--a)));filter:drop-shadow(0 2px 2px rgba(0,0,0,.45))}
+.spin{position:relative;z-index:5;width:128px;height:128px;border-radius:50%;border:6px solid #edf5f1;background:linear-gradient(145deg,#14241e,#07100c);color:#fff;display:grid;place-items:center;text-align:center;font-size:16px;font-weight:1000;line-height:1.05;cursor:pointer;box-shadow:0 0 0 8px rgba(0,0,0,.25),0 0 32px rgba(0,232,148,.38);transition:.25s}.spin:hover{transform:scale(1.06);color:var(--green2)}.spin:disabled{cursor:wait;opacity:.75}
+.result{min-height:410px;display:flex;flex-direction:column;justify-content:center;padding:30px;border-radius:22px;border:1px solid var(--border);background:rgba(4,11,9,.62)}.result .number{color:var(--green);font-weight:900;font-size:12px;letter-spacing:3px;text-transform:uppercase}.result h2{font-size:clamp(29px,4vw,45px);line-height:1.05;margin:14px 0 16px}.result p{color:var(--muted);font-size:17px;margin:0 0 24px}.actions{display:flex;flex-wrap:wrap;gap:11px}.btn{min-height:50px;padding:13px 20px;border-radius:12px;border:1px solid var(--border);font-weight:900;font-size:15px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}.primary{background:var(--green);color:#03110b;border-color:var(--green);box-shadow:0 14px 36px rgba(0,232,148,.22)}.secondary{background:rgba(255,255,255,.04);color:#fff}.wa{display:none;margin-top:11px;background:#25d366;color:#04150a;border-color:#25d366}.hint{margin-top:18px;color:#78867f;font-size:12px}
+footer{text-align:center;padding:30px 15px;border-top:1px solid var(--border);color:#78867f;font-size:13px}
+@media(max-width:850px){main{padding-top:45px}.game{grid-template-columns:1fr;padding:22px;gap:24px}.wheel-wrap{max-width:500px}.result{min-height:330px}.wheel-icons span{transform:translate(-50%,-50%) rotate(var(--a)) translateY(-37vw) rotate(calc(-1 * var(--a)))}}
+@media(max-width:500px){.brand small{display:none}.back{font-size:11px;padding:9px 12px}.intro h1{font-size:46px}.game{padding:15px}.wheel{border-width:6px}.spin{width:104px;height:104px;font-size:14px}.wheel-icons span{font-size:19px;transform:translate(-50%,-50%) rotate(var(--a)) translateY(-36vw) rotate(calc(-1 * var(--a)))}.result{padding:23px}.actions .btn{width:100%}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.wheel{transition-duration:.01s}}
+</style>
+</head>
+<body>
+<header><div class="shell nav"><a class="brand" href="../"><span class="mark">FB</span><span><strong>Făurit de Busuioc</strong><small>Din idee, în realitate.</small></span></a><a class="back" href="../">← Înapoi la site</a></div></header>
+<main class="shell">
+<section class="intro"><div class="eyebrow">Idei pentru proiectul tău</div><h1>Învârte <span>Roata Ideilor</span></h1><p>Nu știi exact ce vrei? Lasă roata să aleagă o idee creativă. Dacă îți place, o discutăm direct pe WhatsApp.</p></section>
+<section class="game">
+<div class="wheel-wrap">
+<div class="pointer" aria-hidden="true"></div>
+<div class="wheel" id="wheel"><div class="wheel-icons" aria-hidden="true">
+<span style="--a:0deg">🏠</span><span style="--a:30deg">⚡</span><span style="--a:60deg">🚘</span><span style="--a:90deg">🏪</span><span style="--a:120deg">🖼️</span><span style="--a:150deg">🎨</span><span style="--a:180deg">👕</span><span style="--a:210deg">🧊</span><span style="--a:240deg">📣</span><span style="--a:270deg">🌐</span><span style="--a:300deg">💡</span><span style="--a:330deg">🛠️</span>
+</div></div>
+<button class="spin" id="spin" type="button">ÎNVÂRTE<br>ROATA</button>
+</div>
+<div class="result" aria-live="polite">
+<div class="number" id="category">Roata este pregătită</div>
+<h2 id="title">Următoarea idee poate fi proiectul tău.</h2>
+<p id="description">Apasă butonul din centrul roții. Poți încerca de câte ori vrei — nu costă nimic.</p>
+<div class="actions"><button class="btn primary" id="spinAgain" type="button">Învârte roata</button><a class="btn wa" id="whatsapp" href="#" target="_blank" rel="noopener">Vreau această idee pe WhatsApp →</a></div>
+<div class="hint">Rezultatul este o sursă de inspirație. Detaliile, materialele și oferta se stabilesc împreună.</div>
+</div>
+</section>
+</main>
+<footer>© 2026 Făurit de Busuioc · Ideile bune merită construite.</footer>
+<script>
+const ideas=[
+{c:"Amenajări interioare",t:"Transformă un perete gol într-un punct de atracție.",d:"Combină lemn, lumină ambientală și un finisaj decorativ pentru un colț care schimbă întreaga cameră."},
+{c:"Instalații electrice",t:"Creează iluminare pe zone, nu un singur bec pentru toată camera.",d:"Separă lumina principală, ambientală și de lucru pentru confort și un aspect modern."},
+{c:"Stickere auto",t:"Dă mașinii o semnătură vizuală discretă.",d:"Un design adaptat capotei sau portierelor poate personaliza mașina fără să o încarce."},
+{c:"Colantări vitrine",t:"Transformă vitrina într-o reclamă care lucrează permanent.",d:"Logo, servicii și un mesaj clar, construite special pentru dimensiunile spațiului tău."},
+{c:"Tapet personalizat",t:"Pune pe perete o imagine care nu există în niciun magazin.",d:"Pornim de la fotografia, stilul sau ideea ta și o adaptăm exact la dimensiunea peretelui."},
+{c:"Tablouri canvas",t:"Transformă o amintire într-un tablou împărțit în trei piese.",d:"O fotografie importantă poate deveni un decor personalizat pentru casă, birou sau cadou."},
+{c:"Haine personalizate",t:"Fă o mini-uniformă pentru echipa sau brandul tău.",d:"Logo discret în față, servicii și contact pe spate — simplu, coerent și ușor de recunoscut."},
+{c:"Printare 3D",t:"Creează o piesă utilă pe care nu o găsești în comerț.",d:"Un suport, organizator, accesoriu sau prototip realizat după nevoia și dimensiunile tale."},
+{c:"Bannere și afișe",t:"Fă un mesaj care se înțelege în trei secunde.",d:"Titlu mare, serviciu clar și contact vizibil — design curat pentru exterior, magazin sau eveniment."},
+{c:"Creare site-uri",t:"Transformă serviciile tale într-o carte de vizită online.",d:"O pagină rapidă, adaptată telefonului, cu lucrări, servicii și contact direct prin WhatsApp."},
+{c:"Idee nebunească",t:"Combină un obiect real cu un cod QR care spune povestea lui.",d:"Poate fi pe un tablou, sticker, afiș sau cadou și poate deschide un video, o pagină sau un mesaj."},
+{c:"Proiect creativ",t:"Construiește un colț cu lumină LED și obiecte personale.",d:"Un spațiu unic pentru colecții, unelte, mașinuțe, fotografii sau elemente create de tine."}
+];
+const wheel=document.getElementById('wheel'),spin=document.getElementById('spin'),spinAgain=document.getElementById('spinAgain'),category=document.getElementById('category'),title=document.getElementById('title'),description=document.getElementById('description'),whatsapp=document.getElementById('whatsapp');
+let rotation=0,busy=false,last=-1;
+function go(){
+ if(busy)return; busy=true; spin.disabled=true; spinAgain.disabled=true; whatsapp.style.display='none';
+ let pick; do{pick=Math.floor(Math.random()*ideas.length)}while(pick===last); last=pick;
+ const extra=1800+Math.floor(Math.random()*720), target=360-(pick*30+15);
+ rotation+=extra+(target-(rotation%360)+360)%360;
+ wheel.style.transform='rotate('+rotation+'deg)';
+ category.textContent='Roata se învârte…';title.textContent='Ține-te bine 😄';description.textContent='Alegem o idee pentru următorul tău proiect.';
+ setTimeout(()=>{const idea=ideas[pick];category.textContent=idea.c;title.textContent=idea.t;description.textContent=idea.d;const msg='Bună! Am folosit Roata Ideilor pe fauritdebusuioc.ro și mi-a ieșit: „'+idea.t+'” Aș vrea să discutăm această idee.';whatsapp.href='https://wa.me/40761514309?text='+encodeURIComponent(msg);whatsapp.style.display='inline-flex';busy=false;spin.disabled=false;spinAgain.disabled=false;},5300);
+}
+spin.addEventListener('click',go);spinAgain.addEventListener('click',go);
+</script>
+</body>
+</html>
