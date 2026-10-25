@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07100c">
+  <title>Simulator vizual | Făurit de Busuioc</title>
+  <meta name="description" content="Trimite ideea proiectului tău pentru o simulare vizuală orientativă.">
+  <style>
+    :root {
+      --bg: #050a08;
+      --panel: rgba(14, 24, 20, .78);
+      --panel-strong: #101b17;
+      --line: rgba(142, 255, 72, .18);
+      --green: #82ff3f;
+      --green-2: #21d879;
+      --text: #f4f7f5;
+      --muted: #a8b5af;
+      --shadow: 0 28px 80px rgba(0,0,0,.36);
+      --radius: 24px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 14% -10%, rgba(68, 255, 138, .16), transparent 32%),
+        radial-gradient(circle at 92% 22%, rgba(130, 255, 63, .08), transparent 30%),
+        linear-gradient(145deg, #040806, #07110d 55%, #040806);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      min-height: 100vh;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .22;
+      background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 82%);
+    }
+    a { color: inherit; }
+    .shell { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 22px 0;
+      position: relative;
+      z-index: 2;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .mark {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background: linear-gradient(145deg, #eef4f0, #8f9d96 42%, #d9e3de 56%, #58635e);
+      color: #07100c;
+      font-weight: 950;
+      font-size: 21px;
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,.28), 0 0 0 1px rgba(130,255,63,.55), 0 10px 40px rgba(81,255,128,.15);
+      letter-spacing: -2px;
+    }
+    .brand strong { display: block; letter-spacing: .02em; }
+    .brand small { color: var(--green); display: block; margin-top: 2px; }
+    .demo-pill {
+      border: 1px solid var(--line);
+      background: rgba(130, 255, 63, .07);
+      color: #cfffba;
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .hero { padding: 54px 0 34px; text-align: center; position: relative; }
+    .eyebrow { color: var(--green); text-transform: uppercase; letter-spacing: .22em; font-weight: 900; font-size: 12px; }
+    h1 { font-size: clamp(38px, 6.2vw, 76px); line-height: .98; max-width: 920px; margin: 18px auto; letter-spacing: -.055em; }
+    h1 span { color: var(--green); text-shadow: 0 0 34px rgba(130,255,63,.22); }
+    .lead { max-width: 720px; margin: 0 auto; color: var(--muted); font-size: clamp(17px, 2vw, 21px); line-height: 1.55; }
+    .steps { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+    .steps span { color: #cad3cf; font-size: 13px; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.035); padding: 9px 12px; border-radius: 999px; }
+    .app-grid { display: grid; grid-template-columns: minmax(0, 1.18fr) minmax(330px, .82fr); gap: 22px; padding: 30px 0 82px; align-items: start; }
+    .card {
+      border: 1px solid rgba(255,255,255,.1);
+      background: var(--panel);
+      backdrop-filter: blur(20px);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .card-head { padding: 25px 26px 18px; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .card-head h2 { margin: 0 0 6px; font-size: 22px; }
+    .card-head p { margin: 0; color: var(--muted); font-size: 14px; }
+    form { padding: 24px 26px 28px; }
+    fieldset { border: 0; padding: 0; margin: 0 0 28px; }
+    legend { width: 100%; font-size: 14px; font-weight: 900; margin-bottom: 14px; display: flex; gap: 9px; align-items: center; }
+    legend b { width: 26px; height: 26px; border-radius: 9px; display: grid; place-items: center; background: var(--green); color: #07100c; font-size: 12px; }
+    .services { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; }
+    .service { position: relative; }
+    .service input { position: absolute; opacity: 0; pointer-events: none; }
+    .service label {
+      display: flex; align-items: center; gap: 10px; min-height: 64px; padding: 12px 13px;
+      background: rgba(255,255,255,.035); border: 1px solid rgba(255,255,255,.1); border-radius: 16px;
+      cursor: pointer; color: #d7dfdb; font-size: 13px; font-weight: 750; transition: .2s ease;
+    }
+    .service label i { font-style: normal; font-size: 22px; }
+    .service input:checked + label { border-color: var(--green); background: rgba(130,255,63,.11); color: white; box-shadow: 0 0 0 3px rgba(130,255,63,.07); transform: translateY(-1px); }
+    .fields { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; }
+    .field.full { grid-column: 1 / -1; }
+    label.caption { display: block; color: #d6ded9; font-size: 12px; font-weight: 800; margin-bottom: 7px; }
+    input, textarea, select {
+      width: 100%; border: 1px solid rgba(255,255,255,.12); background: rgba(3,9,6,.72); color: white; border-radius: 13px; padding: 13px 14px;
+      font: inherit; outline: none; transition: .2s ease;
+    }
+    input:focus, textarea:focus, select:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(130,255,63,.09); }
+    textarea { min-height: 118px; resize: vertical; }
+    input::placeholder, textarea::placeholder { color: #66746e; }
+    .upload {
+      border: 1px dashed rgba(130,255,63,.42); background: rgba(130,255,63,.045); border-radius: 17px;
+      min-height: 132px; display: grid; place-items: center; text-align: center; padding: 18px; cursor: pointer; overflow: hidden; position: relative;
+    }
+    .upload input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+    .upload strong { display: block; margin: 6px 0 4px; }
+    .upload small { color: var(--muted); }
+    .thumb { display: none; width: 100%; max-height: 220px; object-fit: cover; border-radius: 12px; }
+    .consent { display: flex; gap: 10px; align-items: flex-start; color: var(--muted); font-size: 12px; line-height: 1.45; margin: 18px 0; }
+    .consent input { width: 18px; height: 18px; accent-color: var(--green); flex: 0 0 auto; margin-top: 1px; }
+    .submit {
+      width: 100%; border: 0; border-radius: 16px; padding: 16px 20px; font: inherit; font-weight: 950; font-size: 16px; color: #07100c; cursor: pointer;
+      background: linear-gradient(110deg, var(--green), #2ef08c); box-shadow: 0 12px 34px rgba(69,240,120,.2); transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .submit:hover { transform: translateY(-2px); box-shadow: 0 17px 40px rgba(69,240,120,.28); }
+    .submit:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+    .notice { margin-top: 11px; color: var(--muted); font-size: 12px; text-align: center; }
+    .preview { position: sticky; top: 18px; }
+    .phone { padding: 18px; background: #06100b; }
+    .wa-top { display: flex; align-items: center; gap: 11px; padding: 10px 8px 17px; }
+    .avatar { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(145deg, #cbd4cf, #66736c); color: #07100c; font-weight: 950; }
+    .wa-top strong { display: block; font-size: 14px; }
+    .wa-top small { color: #68e49a; }
+    .chat {
+      min-height: 460px; padding: 22px 14px; border-radius: 18px;
+      background-color: #0a1510;
+      background-image: radial-gradient(rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 18px 18px;
+    }
+    .bubble { margin-left: auto; width: 92%; color: #eaf1ed; background: #124c37; border-radius: 17px 5px 17px 17px; padding: 14px 15px; font-size: 13px; line-height: 1.55; white-space: pre-wrap; box-shadow: 0 10px 30px rgba(0,0,0,.2); }
+    .bubble .placeholder { color: #91a69c; font-style: italic; }
+    .time { display: block; color: #91b3a3; text-align: right; font-size: 10px; margin-top: 8px; }
+    .how { padding: 23px 24px 25px; border-top: 1px solid rgba(255,255,255,.08); }
+    .how h3 { margin: 0 0 15px; font-size: 16px; }
+    .how ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+    .how li { display: grid; grid-template-columns: 27px 1fr; gap: 9px; align-items: start; color: var(--muted); font-size: 13px; line-height: 1.45; }
+    .how li b { display: grid; place-items: center; width: 25px; height: 25px; border-radius: 8px; color: var(--green); background: rgba(130,255,63,.09); }
+    footer { border-top: 1px solid rgba(255,255,255,.07); padding: 24px 0 32px; color: var(--muted); font-size: 13px; text-align: center; }
+    .toast { position: fixed; left: 50%; bottom: 22px; transform: translate(-50%, 20px); opacity: 0; pointer-events: none; z-index: 10; background: #effff5; color: #082113; padding: 12px 16px; border-radius: 13px; box-shadow: 0 18px 60px rgba(0,0,0,.45); font-weight: 800; font-size: 13px; transition: .25s ease; }
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+    @media (max-width: 880px) {
+      .app-grid { grid-template-columns: 1fr; }
+      .preview { position: static; }
+      .hero { padding-top: 36px; }
+    }
+    @media (max-width: 600px) {
+      .shell { width: min(100% - 20px, 1180px); }
+      header { padding: 15px 3px; }
+      .brand span { display: none; }
+      .hero { padding: 34px 3px 20px; }
+      .app-grid { padding-top: 20px; }
+      .card-head, form { padding-left: 17px; padding-right: 17px; }
+      .services, .fields { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
+      .service label { min-height: 56px; }
+      .chat { min-height: 390px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <a class="brand" href="#top" aria-label="Făurit de Busuioc">
+        <div class="mark">FB</div>
+        <span><strong>Făurit de Busuioc</strong><small>Din idee, în realitate.</small></span>
+      </a>
+      <a class="demo-pill" href="../">ÎNAPOI LA SITE</a>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="eyebrow">Simulator vizual pentru proiectul tău</div>
+        <h1>Vezi ideea <span>înainte</span> să o realizăm.</h1>
+        <p class="lead">Spune-ne ce îți dorești, apoi trimite fotografia direct în WhatsApp. Pregătim o simulare orientativă și discutăm materialele, măsurătorile și oferta reală.</p>
+        <div class="steps"><span>1 · Alegi serviciul</span><span>2 · Descrii ideea</span><span>3 · Trimiți pe WhatsApp</span></div>
+      </section>
+
+      <section class="app-grid">
+        <div class="card">
+          <div class="card-head"><h2>Spune-ne ce vrei să construim</h2><p>Completează doar ce știi. Detaliile le stabilim împreună.</p></div>
+          <form id="requestForm">
+            <fieldset>
+              <legend><b>1</b> Alege serviciul</legend>
+              <div class="services">
+                <div class="service"><input required type="radio" id="s1" name="service" value="Amenajări interioare la cheie"><label for="s1"><i>🏠</i>Amenajări interioare</label></div>
+                <div class="service"><input type="radio" id="s2" name="service" value="Instalații electrice"><label for="s2"><i>⚡</i>Instalații electrice</label></div>
+                <div class="service"><input type="radio" id="s3" name="service" value="Stickere auto"><label for="s3"><i>🚘</i>Stickere auto</label></div>
+                <div class="service"><input type="radio" id="s4" name="service" value="Colantări vitrine"><label for="s4"><i>🏪</i>Colantări vitrine</label></div>
+                <div class="service"><input type="radio" id="s5" name="service" value="Tapet personalizat"><label for="s5"><i>🖼️</i>Tapet personalizat</label></div>
+                <div class="service"><input type="radio" id="s6" name="service" value="Tablouri canvas"><label for="s6"><i>🎨</i>Tablouri canvas</label></div>
+                <div class="service"><input type="radio" id="s7" name="service" value="Haine personalizate"><label for="s7"><i>👕</i>Haine personalizate</label></div>
+                <div class="service"><input type="radio" id="s8" name="service" value="Printare 3D"><label for="s8"><i>🧊</i>Printare 3D</label></div>
+                <div class="service"><input type="radio" id="s9" name="service" value="Bannere, afișe și cărți de vizită"><label for="s9"><i>📣</i>Bannere și afișe</label></div>
+                <div class="service"><input type="radio" id="s10" name="service" value="Creare site-uri"><label for="s10"><i>🌐</i>Creare site-uri</label></div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend><b>2</b> Descrie ideea</legend>
+              <div class="fields">
+                <div class="field full">
+                  <label class="caption" for="idea">Ce ai vrea să vezi în simulare?</label>
+                  <textarea required id="idea" placeholder="Exemplu: dormitor modern, verde-oliv, negru și lemn. Păstrează forma camerei."></textarea>
+                </div>
+                <div class="field">
+                  <label class="caption" for="budget">Buget orientativ</label>
+                  <select id="budget"><option value="Nespecificat">Nu știu încă</option><option>Sub 2.500 lei</option><option>2.500–5.000 lei</option><option>5.000–10.000 lei</option><option>Peste 10.000 lei</option></select>
+                </div>
+                <div class="field"><label class="caption" for="city">Localitate</label><input required id="city" placeholder="Exemplu: Focșani"></div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend><b>3</b> Date de contact</legend>
+              <div class="fields">
+                <div class="field"><label class="caption" for="name">Nume</label><input required id="name" autocomplete="name" placeholder="Numele tău"></div>
+                <div class="field"><label class="caption" for="phone">Telefon</label><input required id="phone" type="tel" autocomplete="tel" placeholder="07xx xxx xxx"></div>
+              </div>
+              <label class="consent"><input required id="consent" type="checkbox"><span>Sunt de acord ca datele completate să fie folosite doar pentru această solicitare. Simularea este orientativă și nu reprezintă o ofertă finală.</span></label>
+              <button class="submit" type="submit">Trimite cererea pe WhatsApp →</button>
+              <div class="notice">După deschiderea WhatsApp, atașează fotografia proiectului direct în conversație.</div>
+            </fieldset>
+          </form>
+        </div>
+
+        <aside class="card preview">
+          <div class="card-head"><h2>Mesajul care ajunge la tine</h2><p>Se actualizează pe măsură ce clientul completează formularul.</p></div>
+          <div class="phone">
+            <div class="wa-top"><div class="avatar">FB</div><div><strong>Făurit de Busuioc</strong><small>WhatsApp Business</small></div></div>
+            <div class="chat"><div class="bubble" id="messagePreview"></div></div>
+          </div>
+          <div class="how">
+            <h3>Ce se întâmplă după trimitere</h3>
+            <ol><li><b>1</b><span>Primești cererea structurată pe WhatsApp.</span></li><li><b>2</b><span>Clientul atașează fotografia direct în WhatsApp.</span></li><li><b>3</b><span>Confirmi cererea și pregătești simularea.</span></li><li><b>4</b><span>Trimiți imaginea și începi discuția pentru lucrarea reală.</span></li></ol>
+          </div>
+        </aside>
+      </section>
+    </main>
+  </div>
+  <footer><div class="shell">Făurit de Busuioc · Nimic nu se trimite automat fără confirmarea utilizatorului.</div></footer>
+  <div class="toast" id="toast">Se deschide WhatsApp… atașează fotografia acolo 📷</div>
+
+  <script>
+    const form = document.getElementById('requestForm');
+    const preview = document.getElementById('messagePreview');
+    const toast = document.getElementById('toast');
+    const $ = (id) => document.getElementById(id);
+
+    function value(id, fallback) { return $(id).value.trim() || fallback; }
+    function selectedService() {
+      const checked = form.querySelector('input[name="service"]:checked');
+      return checked ? checked.value : '— alege serviciul —';
+    }
+    function buildMessage(forPreview = false) {
+      const blank = forPreview ? '— de completat —' : 'Nespecificat';
+      return `Bună ziua! Am completat o cerere pe fauritdebusuioc.ro și doresc o simulare vizuală.\n\n` +
+        `Serviciu: ${selectedService()}\n` +
+        `Ideea mea: ${value('idea', blank)}\n` +
+        `Buget orientativ: ${$('budget').value}\n` +
+        `Localitate: ${value('city', blank)}\n` +
+        `Nume: ${value('name', blank)}\n` +
+        `Telefon: ${value('phone', blank)}\n` +
+        `Fotografie: o atașez direct în această conversație\n\n` +
+        `Înțeleg că simularea este orientativă și că oferta finală se stabilește după măsurători și alegerea materialelor.`;
+    }
+    function updatePreview() {
+      preview.textContent = buildMessage(true);
+      const t = document.createElement('span');
+      t.className = 'time';
+      t.textContent = 'acum ✓✓';
+      preview.appendChild(t);
+    }
+    form.addEventListener('input', updatePreview);
+    form.addEventListener('change', updatePreview);
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3200);
+      const whatsappNumber = '40761514309';
+      const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(buildMessage(false))}`;
+      window.open(url, '_blank', 'noopener,noreferrer');
+    });
+    updatePreview();
+  </script>
+</body>
+</html>
