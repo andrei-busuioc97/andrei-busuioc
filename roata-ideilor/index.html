@@ -32,7 +32,7 @@ footer{text-align:center;padding:30px 15px;border-top:1px solid var(--border);co
 <div class="wheel-wrap">
 <div class="pointer" aria-hidden="true"></div>
 <div class="wheel" id="wheel"><div class="wheel-icons" aria-hidden="true">
-<span style="--a:0deg">🏠</span><span style="--a:30deg">⚡</span><span style="--a:60deg">🚘</span><span style="--a:90deg">🏪</span><span style="--a:120deg">🖼️</span><span style="--a:150deg">🎨</span><span style="--a:180deg">👕</span><span style="--a:210deg">🧊</span><span style="--a:240deg">📣</span><span style="--a:270deg">🌐</span><span style="--a:300deg">💡</span><span style="--a:330deg">🛠️</span>
+<span style="--a:0deg">🏠</span><span style="--a:30deg">🛋️</span><span style="--a:60deg">🚘</span><span style="--a:90deg">🏪</span><span style="--a:120deg">🖼️</span><span style="--a:150deg">🎨</span><span style="--a:180deg">👕</span><span style="--a:210deg">🧊</span><span style="--a:240deg">📣</span><span style="--a:270deg">🪪</span><span style="--a:300deg">💡</span><span style="--a:330deg">🛠️</span>
 </div></div>
 <button class="spin" id="spin" type="button">ÎNVÂRTE<br>ROATA</button>
 </div>
@@ -46,10 +46,9 @@ footer{text-align:center;padding:30px 15px;border-top:1px solid var(--border);co
 </section>
 </main>
 <footer>© 2026 Făurit de Busuioc · Ideile bune merită construite.</footer>
-<script>
-const ideas=[
+<scriptconst ideas=[
 {c:"Amenajări interioare",t:"Transformă un perete gol într-un punct de atracție.",d:"Combină lemn, lumină ambientală și un finisaj decorativ pentru un colț care schimbă întreaga cameră."},
-{c:"Instalații electrice",t:"Creează iluminare pe zone, nu un singur bec pentru toată camera.",d:"Separă lumina principală, ambientală și de lucru pentru confort și un aspect modern."},
+{c:"Amenajări interioare",t:"Creează un colț de relaxare cu lumină caldă și spațiu de depozitare.",d:"O banchetă, câteva rafturi și iluminare discretă pot transforma un spațiu nefolosit într-un loc util."},
 {c:"Stickere auto",t:"Dă mașinii o semnătură vizuală discretă.",d:"Un design adaptat capotei sau portierelor poate personaliza mașina fără să o încarce."},
 {c:"Colantări vitrine",t:"Transformă vitrina într-o reclamă care lucrează permanent.",d:"Logo, servicii și un mesaj clar, construite special pentru dimensiunile spațiului tău."},
 {c:"Tapet personalizat",t:"Pune pe perete o imagine care nu există în niciun magazin.",d:"Pornim de la fotografia, stilul sau ideea ta și o adaptăm exact la dimensiunea peretelui."},
@@ -57,10 +56,10 @@ const ideas=[
 {c:"Haine personalizate",t:"Fă o mini-uniformă pentru echipa sau brandul tău.",d:"Logo discret în față, servicii și contact pe spate — simplu, coerent și ușor de recunoscut."},
 {c:"Printare 3D",t:"Creează o piesă utilă pe care nu o găsești în comerț.",d:"Un suport, organizator, accesoriu sau prototip realizat după nevoia și dimensiunile tale."},
 {c:"Bannere și afișe",t:"Fă un mesaj care se înțelege în trei secunde.",d:"Titlu mare, serviciu clar și contact vizibil — design curat pentru exterior, magazin sau eveniment."},
-{c:"Creare site-uri",t:"Transformă serviciile tale într-o carte de vizită online.",d:"O pagină rapidă, adaptată telefonului, cu lucrări, servicii și contact direct prin WhatsApp."},
-{c:"Idee nebunească",t:"Combină un obiect real cu un cod QR care spune povestea lui.",d:"Poate fi pe un tablou, sticker, afiș sau cadou și poate deschide un video, o pagină sau un mesaj."},
-{c:"Proiect creativ",t:"Construiește un colț cu lumină LED și obiecte personale.",d:"Un spațiu unic pentru colecții, unelte, mașinuțe, fotografii sau elemente create de tine."}
-];
+{c:"Cărți de vizită",t:"Transformă datele tale de contact într-o carte de vizită memorabilă.",d:"Logo, servicii și contact organizate într-un design clar, adaptat identității tale."},
+{c:"Amenajare decorativă",t:"Creează un perete cu lumină LED și elemente personale.",d:"Un decor unic pentru fotografii, colecții, obiecte preferate sau identitatea afacerii tale."},
+{c:"Personalizare creativă",t:"Combină un obiect personalizat cu un cod QR surpriză.",d:"Poate fi pe un tablou, sticker, afiș sau cadou și poate deschide un video, o pagină ori un mesaj."}
+];];
 const wheel=document.getElementById('wheel'),spin=document.getElementById('spin'),spinAgain=document.getElementById('spinAgain'),category=document.getElementById('category'),title=document.getElementById('title'),description=document.getElementById('description'),whatsapp=document.getElementById('whatsapp');
 let rotation=0,busy=false,last=-1;
 function go(){
